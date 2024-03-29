@@ -4,7 +4,6 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 
 # Whisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Whisp)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7328528.svg)](https://doi.org/10.5281/zenodo.7328528)
 
 Project leads: **Douglas Crocker**   -  crockerd@oregonstate.edu 
 
