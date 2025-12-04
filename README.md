@@ -5,7 +5,7 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 # Wisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Wisp)
 
 
-Project leads: **Douglas Crocker**   -  crockerd@oregonstate.edu 
+Project leads: **Soren Emmons** - emmonsso@oregonstate.edu **Douglas Crocker**   -  crockerd@oregonstate.edu 
 
 <p align="center">
 
@@ -28,8 +28,7 @@ Wisp is an open-source air quality monitoring system, low-cost hardware and soft
 | Particulate Matter 10 |SEN55| ±25 |ug/m^3| ±25|ug/m^3 | 0 - 1000|ug/m^3|
 | Volatile Organic Compounds |SEN55| ±5 |VOC index points| ±5| VOC index points |1 - 500 |VOC index points|
 | Nitrogen Oxides Index |SEN55| ±10 |NOx index points| ±10| NOx index points |1 - 500 |NOx index points|
-| Senses Pressure   |MS580302|30 - 110|kPa|±0.15|kPa
-| 6 Watt Solar Panel|        |||||||
+| 5 Watt Solar Panel|        |||||||
 | Data Collection Frequency | |  | | ||5| Minutes|
 | Battery life (Up to 3 10050 mAh batteries)	|  |  |||| 25 | Days|
 | Project Cost |  |  |  |||<800 | $|
