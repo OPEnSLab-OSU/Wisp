@@ -116,6 +116,16 @@ Figure 4: Data-flow handling chart
 
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number”  to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data. 
 
+## Deployment History
+Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particualtes in vineyards. Over this past year, OPEnS has handled 43 Wisp deployments at vineyards where their data is currently being used by UC Davis, OSU, and WSU.
+
+<p align = "center">
+<img width="1106" height="708" alt="image" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe" />
+
+<p align = "center">
+<img width="1079" height="678" alt="image" src="https://github.com/user-attachments/assets/b0d793c7-6f7e-4e41-ac06-b3f074bc1c03" />
+
+
 ## Wisp V2
 </p>
 # Hardware Description
@@ -174,8 +184,7 @@ Figure #: Wisp V2 PCB
 | Hydrogen Sulfide (H2S) | SEN0467 | 1 ppm | ±10% | 0 to 100 ppm |
 | Carbon Dioxide (CO2) | T6793-5K | 1 ppm | ±45 ppm | 400 to 5000 ppm |
 
-## Deployment History
-<p align = "center"> 
+ 
 
 
 <p align = "center"> 
