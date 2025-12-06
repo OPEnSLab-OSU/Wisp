@@ -16,6 +16,7 @@ Project leads: **Soren Emmons** - emmonsso@oregonstate.edu, **Douglas Crocker** 
 ## Abstract
 Wisp is an open-source air quality monitoring system, low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
 
+## Wisp V1 Sensor Specs
 
 | Specification |  Sensor       | Resolution   | | Accuracy      |               |Full Range     |   |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |------------- |------------- |
@@ -120,15 +121,17 @@ MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works
 Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particualtes in vineyards. Over this past year, OPEnS has handled 43 Wisp deployments at vineyards where their data is currently being used by UC Davis, OSU, and WSU.
 
 <p align = "center">
-<img width="1106" height="708" alt="image" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe" />
+<img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe" />
+</p>
+Figure #: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
 
 <p align = "center">
-<img width="1079" height="678" alt="image" src="https://github.com/user-attachments/assets/b0d793c7-6f7e-4e41-ac06-b3f074bc1c03" />
-
+<img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/b0d793c7-6f7e-4e41-ac06-b3f074bc1c03" />
+</p>
+Figure #: VOC index graph from 6/25/25 - 9/3/25 in Washington
 
 ## Wisp V2
 </p>
-# Hardware Description
 
 Wisp V2, is an updated version of the Wisp sensor supporting 4 [SEN0465 to SEN0476](https://www.dfrobot.com/product-2510.html) line of gas sensors and the [T6793-5k](https://www.digikey.com/en/products/detail/amphenol-advanced-sensors/T6793-5K/16368385) CO2 sensor. The [SEN0465 to SEN0476] line of sensors are all supported by the Wisp V2 allowing the user to choose the types of gases that fit their use case. The new Wisp V2 board, now has a I2C multiplexer helping with stability with the increased number of sensors and allowing for a more modular device. All of the sensors are now integrated into the new fully 3D printed waterproof Wisp case that also allows for easier user access of the SD card as well allowing for up to five 1sLipo 10050mAh batteries. The Wisp V2 is currently undergoing testing with prototype units but is expected to begin being deployed for field data collection in May of 2026. 
 
@@ -160,15 +163,16 @@ Wisp V2, is an updated version of the Wisp sensor supporting 4 [SEN0465 to SEN04
 Figure #: 3D Renders of the Wisp V2
 
 <p align="center">
-<img width="800" height="900" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
+<img width="700" height="800" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
 </p>
 <p align="center">
 Figure #: Wisp V2 PCB
 
+<div align="center">
 
+## Wisp V2 Sensor Specs
 
-
-| Specification | Sensor | Resolution | Accuracy | Full Range |
+|  **Specification**  |  **Sensor**  |  **Resolution**  |  **Accuracy**  |  **Full Range**  |
 | :--- | :---: | :---: | :---: | :---: |
 | Ambient Temperature | SHT31 | 0.01 ℃ | ±0.3 ℃ | -40 to 125 ℃ |
 | Humidity | SHT31 | 0.015 %RH | ±3 %RH | 0 to 100 %RH |
