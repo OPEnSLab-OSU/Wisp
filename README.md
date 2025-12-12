@@ -14,7 +14,7 @@ Project leads: **Soren Emmons** - emmonsso@oregonstate.edu, **Douglas Crocker** 
 
 
 ## Abstract
-Wisp is an open-source air quality monitoring system, low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
+Wisp is an open-source air quality monitoring system, a low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
 
 ## Wisp V1 Sensor Specs
 
@@ -40,18 +40,19 @@ Wisp is an open-source air quality monitoring system, low-cost hardware and soft
 
 
 ## Hardware In Context
-Each *Wisp* can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the *Wisp* is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. While many other sensors like rainfall, air quality, and wind direction could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. The Wisp can operate for up to 27 days on a battery capacity of 10050 mAh with a logging period of every ten minutes. The logging period is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. . 
+Each *Wisp* can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the *Wisp* is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh battereies with a logging period of every five minutes. The logging period is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. 
 \
 The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
 
 \
-The Wisp device produced at the OPEnS Lab aims to collect environmental data. Data is streamed in real time via a local server to MongoDB, an online database. Computer applications can subscribe to these data stream feeds and data analysis can be conducted based 
+The Wisp device produced at the OPEnS Lab aims to collect environmental data. Data is streamed in real time via a local server to MongoDB, an online database. Computer applications can subscribe to these data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.  
 
 
 ## Hardware Description
 **Version 1**
 \
-The Pelican case has three holes drilled on the side to accommodate for the PG7 cable glands and waterproof cable set. This allows for the [SHT31](https://www.digikey.com) and [SEN55](https://www.digikey.com) sensor to be swapped out easily. Inside the case, a custom 3D printed base plate holds the Featherwing doubler, LTE cellular board,  and batteries securely in place. A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board are used to store data collected by a particulate matter sensor (SEN55) and temperature & humidity sensor (SHT31). The v3.3 Hypnos board turns peripherals on and off to preserve power, wake up at intervals using the embedded DS3231 RTC, transmit data via cellular LTE and store data onboard a microSD card. In order to enable 4G capabilities the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, solar charger and 5 Watt solar panel is implemented. 
+The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set. This allows for the [SHT31](https://www.digikey.com/en/products/detail/dfrobot/SEN0385/13590873?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7ZY7lfRuItuFSmiqk9HOFaHFD5hMuSXhRHAJTuwCGXXSsgWjr_exEBoC_ecQAvD_BwE) and [SEN55](https://www.digikey.com/en/products/detail/sensirion-ag/SEN55-SDN-T/16342756?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7R_zAgQmUyPsM8nMsHZEcr-VeQwOGRPi851icy3Jx-7ERo_M-4K_oRoCu1gQAvD_BwE) sensor to be swapped out easily. Inside the case, a custom 3D printed base plate holds the Featherwing doubler, LTE cellular board, and batteries securely in place. A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by a particulate matter sensor (SEN55) and temperature & humidity sensor (SHT31). The v3.3 Hypnos board turns peripherals on and off to preserve power, wakes up at intervals using the embedded DS3231 RTC, transmits data via cellular LTE, and stores data onboard a microSD card. In order to enable 4G capabilities, the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, a solar charger, and a 5 Watt solar panel is implemented. 
+
 
 <p align="center">
 <img width="867" height="912" alt="image" src="https://github.com/user-attachments/assets/1b245f23-9401-431b-ad87-d6cbec88cc81" />
@@ -83,7 +84,7 @@ Figure 2: Fully built Wisp device
 <p>
 
 <p align = "center">
-Figure 3: Block diagram of WeatherChimes electronics
+Figure 3: Block diagram of Wisp electronics
 </p>
 
 The most relevant features of the electronics system are the following:
@@ -97,19 +98,17 @@ The most relevant features of the electronics system are the following:
 
 
 ## Current Draw Test
-<p align="center">
-<img src="https://user-images.githubusercontent.com/86391366/167509252-332a4d7e-60e6-4997-b2ec-00b88ba90b25.png" width="600"> 
-<p>
 
-The Chime device draws 107.5 mA when initializing and 108.9 mA during WiFi. It sleeps for 10 minutes in-between data cycles and uses 14.8 mA. When running on an 10050 mA battery, the device will approximately last 27.32 days.
+The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling. During transmission, the Wisp draws 305mA peak current. It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery. A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals. 
 
 ## State Machine Diagram
 
-Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over WiFi to a remote MQTT (Message Queueing Telemetry Transport) broker which is being run on an OSU server. 
+Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT (Message Queueing Telemetry Transport) broker which is being run on an OSU server. 
 
 
+<p align = "center">
 <img width="879" alt="image" src="https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/assets/105105069/84997534-468d-45ce-ac49-34dc9aa48742">
-
+</p>
 
 <p align = "center">
 Figure 4: Data-flow handling chart
@@ -123,17 +122,32 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 <p align = "center">
 <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe" />
 </p>
+
+<p align = "center">
 Figure #: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
+</p>
 
 <p align = "center">
 <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/b0d793c7-6f7e-4e41-ac06-b3f074bc1c03" />
 </p>
-Figure #: VOC index graph from 6/25/25 - 9/3/25 in Washington
 
+<p align = "center">
+Figure #: VOC index graph from 6/25/25 - 9/3/25 in Washington
+</p>
+
+<p align = "center">
+<img width="2469" height="508" alt="image" src="https://github.com/user-attachments/assets/f3586e3b-fb2d-44d4-baf8-bf03e1f2033f" />
+</p>
+
+<p align = "center">
+Figure #: CSV File output from Wisp unit
+</p>
+ 
+ 
 ## Wisp V2
 </p>
 
-Wisp V2, is an updated version of the Wisp sensor supporting 4 [SEN0465 to SEN0476](https://www.dfrobot.com/product-2510.html) line of gas sensors and the [T6793-5k](https://www.digikey.com/en/products/detail/amphenol-advanced-sensors/T6793-5K/16368385) CO2 sensor. The [SEN0465 to SEN0476] line of sensors are all supported by the Wisp V2 allowing the user to choose the types of gases that fit their use case. The new Wisp V2 board, now has a I2C multiplexer helping with stability with the increased number of sensors and allowing for a more modular device. All of the sensors are now integrated into the new fully 3D printed waterproof Wisp case that also allows for easier user access of the SD card as well allowing for up to five 1sLipo 10050mAh batteries. The Wisp V2 is currently undergoing testing with prototype units but is expected to begin being deployed for field data collection in May of 2026. 
+Wisp V2, is an updated version of the Wisp sensor supporting 4 DFRobot [SEN0465 to SEN0476](https://www.dfrobot.com/product-2510.html) line of gas sensors and the [T6793-5k](https://www.digikey.com/en/products/detail/amphenol-advanced-sensors/T6793-5K/16368385) CO2 sensor. The [SEN0465 to SEN0476] line of sensors are all supported by the Wisp V2 allowing the user to choose the types of gases that fit their use case. The new Wisp V2 board, now has a I2C multiplexer helping with stability with the increased number of sensors and allowing for a more modular device. All of the sensors are now integrated into the new fully 3D printed waterproof Wisp case that also allows for easier user access of the SD card as well allowing for up to five 1sLipo 10050mAh batteries. The goal with this new version of the Wisp is to expand the units sensing capabilities while still being reliable and modular to fit many use cases and research projects. The Wisp V2 is currently undergoing testing with prototype units but is expected to begin being deployed for field data collection in May of 2026. 
 
 <table>
   <tr>
@@ -161,13 +175,13 @@ Wisp V2, is an updated version of the Wisp sensor supporting 4 [SEN0465 to SEN04
 </p>
 <p align="center">
 Figure #: 3D Renders of the Wisp V2
-
+</p>
 <p align="center">
 <img width="700" height="800" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
 </p>
 <p align="center">
 Figure #: Wisp V2 PCB
-
+</p>
 <div align="center">
 
 ## Wisp V2 Sensor Specs
