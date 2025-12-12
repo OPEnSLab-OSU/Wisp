@@ -62,7 +62,7 @@ The Pelican case has three holes drilled on the side to accommodate the PG7 cabl
 <p>
 
 <p align = "center">
-Figure 1: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial sensors
+Figure 2: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial sensors
 </p>
 <p align="center">
  Other I2C sensors may also be connected as long as there is relevant code to handle requesting data on the Feather M0.
@@ -76,7 +76,7 @@ Figure 1: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial
 
 </p>
 <p align="center">
-Figure 2: Fully built Wisp device 
+Figure 3: Fully built Wisp device 
 
 ## Electronics
 
@@ -86,7 +86,7 @@ Figure 2: Fully built Wisp device
 <p>
 
 <p align = "center">
-Figure 3: Block diagram of Wisp electronics
+Figure 4: Block diagram of Wisp electronics
 </p>
 
 The most relevant features of the electronics system are the following:
@@ -113,7 +113,7 @@ Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode,
 </p>
 
 <p align = "center">
-Figure 4: Data-flow handling chart
+Figure 5: Data-flow handling chart
 </p>
 
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number”  to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data. 
@@ -126,7 +126,7 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 </p>
 
 <p align = "center">
-Figure #: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
+Figure 6: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
@@ -134,7 +134,7 @@ Figure #: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
-Figure #: VOC index graph from 6/25/25 - 9/3/25 in Washington
+Figure 7: VOC index graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
@@ -142,15 +142,14 @@ Figure #: VOC index graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
-Figure #: CSV File output from Wisp unit
+Figure 8: CSV File output from Wisp unit
 </p>
  
  
 ## Wisp V2
 </p>
-
-Wisp V2, is an updated version of the Wisp sensor supporting 4 DFRobot [SEN0465 to SEN0476](https://www.dfrobot.com/product-2510.html) line of gas sensors and the [T6793-5k](https://www.digikey.com/en/products/detail/amphenol-advanced-sensors/T6793-5K/16368385) CO2 sensor. The [SEN0465 to SEN0476] line of sensors are all supported by the Wisp V2 allowing the user to choose the types of gases that fit their use case. The new Wisp V2 board, now has a I2C multiplexer helping with stability with the increased number of sensors and allowing for a more modular device. All of the sensors are now integrated into the new fully 3D printed waterproof Wisp case that also allows for easier user access of the SD card as well allowing for up to five 1sLipo 10050mAh batteries. The goal with this new version of the Wisp is to expand the units sensing capabilities while still being reliable and modular to fit many use cases and research projects. The Wisp V2 is currently undergoing testing with prototype units but is expected to begin being deployed for field data collection in May of 2026. 
-
+The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include the full line of DFRobot gas sensors [SEN0465 to SEN0476](https://www.dfrobot.com/product-2510.html) and the [T6793-5k](https://www.digikey.com/en/products/detail/amphenol-advanced-sensors/T6793-5K/16368385) CO2 sensor. To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. Currently in the prototype testing phase, the Wisp V2 provides a robust, customizable platform for long-term field studies and is slated for deployment in May 2026.
+<br>
 <table>
   <tr>
     <td width="50%">
@@ -176,14 +175,18 @@ Wisp V2, is an updated version of the Wisp sensor supporting 4 DFRobot [SEN0465 
 </table>
 </p>
 <p align="center">
-Figure #: 3D Renders of the Wisp V2
+Figure 9: 3D Renders of the Wisp V2
 </p>
 <p align="center">
 <img width="700" height="800" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
 </p>
 <p align="center">
-Figure #: Wisp V2 PCB
+Figure 10: Wisp V2 PCB
 </p>
+
+## Hardware 
+The Wisp V2 is designed as a highly modular sensing platform capable of measuring a customizable array of environmental parameters. Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings, the V2 architecture integrates an I2C multiplexer to support the full line of DFRobot gas sensors (including CO, O3, SO2, and H2S) and the T6793-5k CO2 sensor as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. By retaining the ability to stream data to MongoDB while increasing sensor flexibility.
+
 <div align="center">
 
 ## Wisp V2 Sensor Specs
@@ -204,10 +207,13 @@ Figure #: Wisp V2 PCB
 | Hydrogen Sulfide (H2S) | SEN0467 | 1 ppm | ±10% | 0 to 100 ppm |
 | Carbon Dioxide (CO2) | T6793-5K | 1 ppm | ±45 ppm | 400 to 5000 ppm |
 
+</p>
  
 
 
-<p align = "center"> 
+
+
+
  
 ## Resource List
 
