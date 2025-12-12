@@ -2,16 +2,18 @@
 An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The device logs air quality index parameters to the MongoDB database.
 
 
-# Wisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Wisp)
+# Wisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Wisp) | [Wisp V2](#wisp-v2)
 
 
 Project leads: **Soren Emmons** - emmonsso@oregonstate.edu, **Douglas Crocker**   -  crockerd@oregonstate.edu 
 
 <p align="center">
 <img width="806" height="853" alt="image" src="https://github.com/user-attachments/assets/7135006f-c615-40a3-88c8-dcc87a8b4813" />
+</p>
 
-
-
+<p align="center">
+Figure 1: Deployed Wisp unit in Napa Valley
+</p>
 
 ## Abstract
 Wisp is an open-source air quality monitoring system, a low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
@@ -40,7 +42,7 @@ Wisp is an open-source air quality monitoring system, a low-cost hardware and so
 
 
 ## Hardware In Context
-Each *Wisp* can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the *Wisp* is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh battereies with a logging period of every five minutes. The logging period is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. 
+Each *Wisp* can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the *Wisp* is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. The logging period is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. 
 \
 The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
 
@@ -117,7 +119,7 @@ Figure 4: Data-flow handling chart
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number”  to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data. 
 
 ## Deployment History
-Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particualtes in vineyards. Over this past year, OPEnS has handled 43 Wisp deployments at vineyards where their data is currently being used by UC Davis, OSU, and WSU.
+Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over this past year, OPEnS has handled 43 Wisp deployments at vineyards where their data is currently being used by UC Davis, OSU, and WSU.
 
 <p align = "center">
 <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe" />
@@ -216,7 +218,6 @@ Figure #: Wisp V2 PCB
 * [Power Budget](https://docs.google.com/spreadsheets/d/1JvEoA3bKAHnuwdlADwK3NVbHGGMLVKzisJuQMVjQb0Y/edit?usp=sharing)
 
 * [Wisp PCB v0.zip](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/files/14748869/Wisp.PCB.v0.zip)
-
 
 * [Loom V4 Repository](https://github.com/OPEnSLab-OSU/Loom-V4)
 
