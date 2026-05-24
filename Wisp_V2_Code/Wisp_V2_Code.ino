@@ -4,7 +4,6 @@
  * MANAGER MUST BE INCLUDED FIRST IN ALL CODE
  */
 
-
 #include <Loom_Manager.h>
 
 #include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
@@ -13,13 +12,12 @@
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
 #include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
 
-#include <Sensors/I2C/Loom_T6793/Loom_T6793.h>
-
 #include <Logger.h>
 #include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 #include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
 
-Manager manager("Multiplex_Gas_PCBTest", 1);
+/* CHANGE INSTANCE NUMBER! */
+Manager manager("Wisp_V2_", 23);
 
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
@@ -31,22 +29,7 @@ Loom_Analog analog(manager);
 //A batch is logged every 5 minutes, so 12 per hour (12 * 6 = 72) so mqtt will publish at batch size of 72/ every 6 hours
 Loom_BatchSD batchSD(hypnos, 72);
 
-
-//Loom_DFMultiGasSensor: 0x74
-
-
-
-// Reads the battery voltage
-// Loom_Multiplexer mux(manager, {0x74, 0x15, 0x69});
-// Loom_Multiplexer mux(manager, {0x15, 0x69});
-
-// Loom_Multiplexer mux(manager, {0x74});
-// Loom_Multiplexer mux(manager , {0x74, 0x15, 0x69});
-Loom_Multiplexer mux(manager , {0x74, 0x15, 0x69, 0x44});
-
-
-
-// Loom_T6793 T6793(manager);
+Loom_Multiplexer mux(manager, {0x74, 0x15, 0x69, 0x44});
 
 void isrTrigger()
 {
@@ -56,6 +39,8 @@ void isrTrigger()
 void setup() {
 
   ENABLE_SD_LOGGING;
+  /* Function summaries are disabled to prevent excessive writing to SD card
+   * as well as possible memory leak during deployment. */
   // ENABLE_FUNC_SUMMARIES;
 
   // Start the serial interface
@@ -89,8 +74,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
   // Measure the data from the sensors
   manager.measure();
 
@@ -113,10 +96,6 @@ void loop() {
   hypnos.reattachRTCInterrupt();
 
   // Set the hypnos to sleep, but with power still being supplied to the 5v rail (wait for serial when testing from a computer)
-
   hypnos.networkTimeUpdate();
   hypnos.sleep();
-
-  // Wait for 5 seconds
-  // manager.pause(5000);
 }
