@@ -1,27 +1,33 @@
-
 #include <Loom_Manager.h>
-#include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
-#include <Sensors/Loom_Analog/Loom_Analog.h>
+#include <Adafruit_SleepyDog.h>
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
+#include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
 #include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
-#include <Logger.h>
 #include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 #include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
-#include <Adafruit_SleepyDog.h> 
+#include <Logger.h>
+#include <Sensors/Loom_Analog/Loom_Analog.h>
 
+/* CHANGE INSTANCE NUMBER! */
 Manager manager("Wisp_V2_", 1);
 
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
 Loom_LTE lte(manager, "hologram", "", "");
-Loom_MongoDB mqtt(manager, lte);
-//A batch is logged every 5 minutes, so 12 per hour (12 * 6 = 72) so mqtt will publish at batch size of 72/ every 6 hours
+
+//A batch is logged every 5 minutes, so mqtt will publish a batch of 72 every 6 hours
 Loom_BatchSD batchSD(hypnos, 72);
+Loom_MongoDB mqtt(manager, lte);
 
 // Reads the battery voltage
 Loom_Analog analog(manager);
 
-Loom_Multiplexer mux(manager , {0x74, 0x6B, 0x44});
+/* Initialize I2C sensors through multiplexer
+ * 0x74 - DF MultiGas (3x)
+ * 0x6B - SEN66
+ * 0x44 - SHT31
+ */
+Loom_Multiplexer mux(manager, {0x74, 0x6B, 0x44});
 
 void isrTrigger()
 {
@@ -31,9 +37,13 @@ void isrTrigger()
 void setup() {
 
   ENABLE_SD_LOGGING;
-  
-  // DISABLE FUNC SUMMARIES FOR FIELD DEPLOYMENT!
-  // ENABLE_FUNC_SUMMARIES; 
+
+  /* DISABLE FUNCTION SUMMARIES FOR FIELD DEPLOYMENT!
+   * Function summaries are disabled to prevent excessive writing to SD card
+   * as well as possible memory leak during deployment.
+   * This issue may be fixed after merge with main, test later.
+   */
+  // ENABLE_FUNC_SUMMARIES;
 
   // Start the serial interface
   manager.beginSerial();
@@ -44,13 +54,16 @@ void setup() {
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
-  // Only the 5V rail should be on during sleep
+  /* Both rails should be on during sleep.
+   * DF MultiGas (5V) and SEN66 (3V) require multi-hour warm-up times, so the
+   * rail power cannot be turned  off during sleep.
+   */
   hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
   // Enable the hypnos rails
   hypnos.enable();
-  
-  //Time Sync Using LTE 
+
+  //Time Sync Using LTE
   hypnos.setNetworkInterface(&lte);
 
   // Read the MQTT creds file to supply the device with MQTT credentials
@@ -67,14 +80,15 @@ void setup() {
 
 void loop() {
 
-  Watchdog.enable(16000); 
+  // Enable watchdog to prevent hang in measurement or logging
+  Watchdog.enable(16000);
   Watchdog.reset();
 
   // Measure the data from the sensors
   manager.measure();
 
   // Pet the dog again just in case measure took a few seconds
-  Watchdog.reset(); 
+  Watchdog.reset();
 
   // Package the data into JSON
   manager.package();
@@ -84,23 +98,23 @@ void loop() {
 
   // Log the data to the SD
   hypnos.logToSD();
-  
+
   // Disable watchdog
-  Watchdog.disable(); 
+  Watchdog.disable();
 
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
- 
+
   // Set the interrupt duration for 5 minutes
   hypnos.setInterruptDuration(TimeSpan(0,0,5,0));
 
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
- 
+
   // Sync time (network updates can also block for several seconds)
   hypnos.networkTimeUpdate();
-  
-  // Set the hypnos to sleep
+
+  // Set the hypnos to sleep, don't wait for user to open serial monitor
   hypnos.sleep(false);
 
 }
