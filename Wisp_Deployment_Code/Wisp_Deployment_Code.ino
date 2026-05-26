@@ -5,14 +5,13 @@
 #include <Sensors/I2C/Loom_SEN55/Loom_SEN55.h>
 #include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
 
-//#include <Sensors/Analog/ACS712/Loom_ACS712.h>
-
 #include <Logger.h>
 #include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
 #include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 #include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
+#include <Adafruit_SleepyDog.h> 
 
-Manager manager("Whisp_brd_v0p4_", 33); //change
+Manager manager("Whisp_brd_v0p4_", 1); //change
 
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
@@ -36,7 +35,7 @@ void isrTrigger()
 
 void setup() {
   ENABLE_SD_LOGGING;
-  ENABLE_FUNC_SUMMARIES;
+  // ENABLE_FUNC_SUMMARIES;
 
   // Wait 20 seconds for the serial console to open
   manager.beginSerial();
@@ -71,8 +70,14 @@ void setup() {
 
 void loop() {
 
+  Watchdog.enable(16000); 
+  Watchdog.reset();
+
   // Measure and package the data
   manager.measure();
+
+  Watchdog.reset(); 
+
   manager.package();
 
   // Print the current JSON packet
@@ -81,6 +86,8 @@ void loop() {
   // Log the data to the SD
   hypnos.logToSD();
 
+  Watchdog.disable(); 
+  
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 
@@ -93,6 +100,4 @@ void loop() {
   hypnos.networkTimeUpdate();
   // Set the hypnos to sleep, but with power still being supplied to the 5v rail (wait for serial when testing from a computer)
   hypnos.sleep(false);
-
-  //manager.pause(2000);
 }
