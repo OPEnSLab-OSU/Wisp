@@ -13,9 +13,10 @@ Manager manager("Wisp_V2_", 1);
 
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
+// 4G Connectivity
 Loom_LTE lte(manager, "hologram", "", "");
 
-//A batch is logged every 5 minutes, so mqtt will publish a batch of 72 every 6 hours
+// A batch is logged every 5 minutes, so mqtt will publish a batch of 72 every 6 hours
 Loom_BatchSD batchSD(hypnos, 72);
 Loom_MongoDB mqtt(manager, lte);
 
@@ -56,7 +57,7 @@ void setup() {
 
   /* Both rails should be on during sleep.
    * DF MultiGas (5V) and SEN66 (3V) require multi-hour warm-up times, so the
-   * rail power cannot be turned  off during sleep.
+   * rails power cannot be turned off during sleep.
    */
   hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
@@ -69,7 +70,8 @@ void setup() {
   // Read the MQTT creds file to supply the device with MQTT credentials
   mqtt.loadConfigFromJSON(hypnos.readFile("mqtt_creds.json"));
 
-  // Initialize the manager (LTE initialization takes ~15 seconds, so do this BEFORE starting the Watchdog)
+  // Initialize all modules
+  // LTE initialization takes ~15 seconds, do this BEFORE starting the Watchdog
   manager.initialize();
 
   // Register the ISR and attach to the interrupt
@@ -99,14 +101,14 @@ void loop() {
   // Log the data to the SD
   hypnos.logToSD();
 
-  // Disable watchdog
+  // Disable watchdog before transmitting 4G data, this can take some time
   Watchdog.disable();
 
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 
   // Set the interrupt duration for 5 minutes
-  hypnos.setInterruptDuration(TimeSpan(0,0,5,0));
+  hypnos.setInterruptDuration(TimeSpan(0, 0, 5, 0));
 
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
@@ -114,7 +116,7 @@ void loop() {
   // Sync time (network updates can also block for several seconds)
   hypnos.networkTimeUpdate();
 
-  // Set the hypnos to sleep, don't wait for user to open serial monitor
+  // Set the hypnos to sleep with power still supplied to both rails
+  // Don't wait for user to open serial monitor
   hypnos.sleep(false);
-
 }

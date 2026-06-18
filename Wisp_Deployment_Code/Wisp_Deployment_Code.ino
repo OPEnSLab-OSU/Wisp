@@ -1,43 +1,50 @@
 #include <Loom_Manager.h>
+#include <Adafruit_SleepyDog.h>
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
-
+#include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
+#include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
+#include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
+#include <Logger.h>
 #include <Sensors/Loom_Analog/Loom_Analog.h>
 #include <Sensors/I2C/Loom_SEN55/Loom_SEN55.h>
 #include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
 
-#include <Logger.h>
-#include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
-#include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
-#include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
-#include <Adafruit_SleepyDog.h> 
-
-Manager manager("Whisp_brd_v0p4_", 1); //change
+/* CHANGE INSTANCE NUMBER! */
+Manager manager("Whisp_brd_v0p4_", 1);
 
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
+// 4G Connectivity
+Loom_LTE lte(manager, "hologram", "", "");
+
+// A batch is logged every 5 minutes, so mqtt will publish a batch of 72 every 6 hours
+Loom_BatchSD batchSD(hypnos, 72);
+Loom_MongoDB mqtt(manager, lte);
+
+// Reads the battery voltage
 Loom_Analog analog(manager);
 
-//Main Air Quality, Temperature, and Humidity Sensing
+// Main air quality, temperature, and humidity sensing
 Loom_SEN55 SEN55(manager);
 Loom_SHT31 sht(manager);
-
-//Connectivity
-Loom_LTE lte(manager, "hologram", "", "");
-Loom_MongoDB mqtt(manager, lte);
-//A batch is logged every 5 minutes, so 12 per hour (12 * 6 = 72) so mqtt will publish at batch size of 72/ every 6 hours
-Loom_BatchSD batchSD(hypnos, 72); 
 
 void isrTrigger()
 {
   hypnos.wakeup();
 }
 
-
 void setup() {
+
   ENABLE_SD_LOGGING;
+
+  /* DISABLE FUNCTION SUMMARIES FOR FIELD DEPLOYMENT!
+   * Function summaries are disabled to prevent excessive writing to SD card
+   * as well as possible memory leak during deployment.
+   * This issue may be fixed after merge with main, test later.
+   */
   // ENABLE_FUNC_SUMMARIES;
 
-  // Wait 20 seconds for the serial console to open
+  // Start the serial interface
   manager.beginSerial();
 
   // Set the LTE board to only powerup when a batch is ready to be sent
@@ -46,58 +53,68 @@ void setup() {
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
-  // Only the 5V rail should be on during sleep
+  /* 5V rail should be on during sleep, 3V should be off
+   * SEN55 (5V) requires multi-hour warm-up times, so the rail power cannot be
+   * turned off during sleep.
+   */
   hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_OFF_5V_ON);
 
   // Enable the hypnos rails
   hypnos.enable();
 
-  //Time Sync Using LTE 
+  // Time Sync Using LTE
   hypnos.setNetworkInterface(&lte);
 
   // Read the MQTT creds file to supply the device with MQTT credentials
   mqtt.loadConfigFromJSON(hypnos.readFile("mqtt_creds.json"));
 
-  // Initialize all in-use modules
+  // Initialize all modules
+  // LTE initialization takes ~15 seconds, do this BEFORE starting the Watchdog
   manager.initialize();
 
   // Register the ISR and attach to the interrupt
   hypnos.registerInterrupt(isrTrigger);
 
   hypnos.networkTimeUpdate();
-
 }
 
 void loop() {
 
-  Watchdog.enable(16000); 
+  // Enable watchdog to prevent hang in measurement or logging
+  Watchdog.enable(16000);
   Watchdog.reset();
 
-  // Measure and package the data
+  // Measure the data from the sensors
   manager.measure();
 
-  Watchdog.reset(); 
+  // Pet the dog again just in case measure took a few seconds
+  Watchdog.reset();
 
+  // Package the data into JSON
   manager.package();
 
-  // Print the current JSON packet
+  // Print the JSON document to the Serial monitor
   manager.display_data();
 
   // Log the data to the SD
   hypnos.logToSD();
 
-  Watchdog.disable(); 
-  
+  // Disable watchdog before transmitting 4G data, this can take some time
+  Watchdog.disable();
+
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 
   // Set the interrupt duration for 5 minutes
-  hypnos.setInterruptDuration(TimeSpan(0,0,5,0));
+  hypnos.setInterruptDuration(TimeSpan(0, 0, 5, 0));
 
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
-  
+
+  // Sync time (network updates can also block for several seconds)
   hypnos.networkTimeUpdate();
-  // Set the hypnos to sleep, but with power still being supplied to the 5v rail (wait for serial when testing from a computer)
+
+  // Set the hypnos to sleep with power still supplied to the 5v rail
+  // Don't wait for user to open serial monitor
   hypnos.sleep(false);
 }
