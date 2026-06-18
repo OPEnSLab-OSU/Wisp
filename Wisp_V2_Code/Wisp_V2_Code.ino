@@ -64,7 +64,7 @@ void setup() {
   // Enable the hypnos rails
   hypnos.enable();
 
-  //Time Sync Using LTE
+  // Time Sync Using LTE
   hypnos.setNetworkInterface(&lte);
 
   // Read the MQTT creds file to supply the device with MQTT credentials
