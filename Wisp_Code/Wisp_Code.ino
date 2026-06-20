@@ -7,7 +7,7 @@
 /* CHANGE PARAMETERS! */
 #define WISP_VERSION  2  // 1 or 2
 #define WISP_INSTANCE 1  // Unit number
-#define WISP_USE_LTE  0  // 0 or 1
+#define WISP_USE_LTE  1  // 0 or 1
 
 // A packet is logged every 5 minutes, so mqtt will publish a batch of 72
 // packets every 6 hours
