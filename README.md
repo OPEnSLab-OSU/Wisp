@@ -5,7 +5,7 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 # Wisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Wisp) | [Wisp V2](#wisp-v2)
 
 
-Project leads: **Soren Emmons** - emmonsso@oregonstate.edu, **Douglas Crocker** - crockerd@oregonstate.edu
+Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
 
 <p align="center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/7135006f-c615-40a3-88c8-dcc87a8b4813" />
