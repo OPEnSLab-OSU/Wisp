@@ -21,7 +21,7 @@
 // MQTT credentials file on SD card
 #define MQTT_CREDS_PATH "mqtt_creds.json"
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
 # include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
 # include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 # include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
@@ -45,7 +45,7 @@ Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 // Reads the battery voltage
 Loom_Analog analog(manager);
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
 // 4G Connectivity
 Loom_LTE lte(manager, "hologram", "", "");
 Loom_BatchSD batchSD(hypnos, WISP_BATCH_SIZE);
@@ -81,7 +81,7 @@ void setup() {
   // Start the serial interface
   manager.beginSerial();
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
   // Set the LTE board to only powerup when a batch is ready to be sent
   lte.setBatchSD(batchSD);
 #endif  /* WISP_WISP_USE_LTE */
@@ -108,7 +108,7 @@ void setup() {
   // Enable the hypnos rails
   hypnos.enable();
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
   // Time Sync Using LTE
   hypnos.setNetworkInterface(&lte);
 
@@ -123,7 +123,7 @@ void setup() {
   // Register the ISR and attach to the interrupt
   hypnos.registerInterrupt(isrTrigger);
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
   hypnos.networkTimeUpdate();
 #endif  /* WISP_USE_LTE */
 }
@@ -160,7 +160,7 @@ void loop() {
   // Disable watchdog before transmitting 4G data, this can take some time
   Watchdog.disable();
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 #endif  /* WISP_USE_LTE */
@@ -171,7 +171,7 @@ void loop() {
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
 
-#if WISP_USE_LTE
+#if WISP_USE_LTE==1
   // Sync time (network updates can also block for several seconds)
   hypnos.networkTimeUpdate();
 #endif  /* WISP_USE_LTE */
