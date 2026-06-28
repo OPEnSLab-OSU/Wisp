@@ -81,7 +81,7 @@ void setup() {
   // Start the serial interface
   manager.beginSerial();
 
-#if WISP_WISP_USE_LTE
+#if WISP_USE_LTE
   // Set the LTE board to only powerup when a batch is ready to be sent
   lte.setBatchSD(batchSD);
 #endif  /* WISP_WISP_USE_LTE */
