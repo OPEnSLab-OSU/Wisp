@@ -84,7 +84,7 @@ void setup() {
 #if WISP_USE_LTE==1
   // Set the LTE board to only powerup when a batch is ready to be sent
   lte.setBatchSD(batchSD);
-#endif  /* WISP_WISP_USE_LTE */
+#endif  /* WISP_USE_LTE */
 
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
