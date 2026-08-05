@@ -9,6 +9,8 @@
 #define WISP_INSTANCE 1  // Unit number
 #define WISP_USE_LTE  1  // 0 or 1
 
+#define WISP_SAMPLE_MINUTES 5
+
 // A packet is logged every 5 minutes, so mqtt will publish a batch of 72
 // packets every 6 hours
 #define WISP_BATCH_SIZE 72
@@ -165,8 +167,8 @@ void loop() {
   mqtt.publish(batchSD);
 #endif  /* WISP_USE_LTE */
 
-  // Set the interrupt duration for 5 minutes
-  hypnos.setInterruptDuration(TimeSpan(0, 0, 5, 0));
+  // Set the interrupt duration
+  hypnos.setInterruptDuration(TimeSpan(0, 0, WISP_SAMPLE_MINUTES, 0));
 
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
