@@ -91,21 +91,10 @@ void setup() {
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
-#if WISP_VERSION==1
-  /* 5V rail should be on during sleep, 3V should be off
-   * SEN55 (5V) requires multi-hour warm-up times, so the rail power cannot be
-   * turned off during sleep.
-   */
-  hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_OFF_5V_ON);
-
-#elif WISP_VERSION==2
-  /* Both rails should be on during sleep.
-   * DF MultiGas (5V) and SEN66 (3V) require multi-hour warm-up times, so the
-   * rails power cannot be turned off during sleep.
+  /* Both rails should be on during sleep to minimize effects of power surges
+   * when turning on rails during wakeup.
    */
   hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
-
-#endif  /* WISP_VERSION */
 
   // Enable the hypnos rails
   hypnos.enable();
