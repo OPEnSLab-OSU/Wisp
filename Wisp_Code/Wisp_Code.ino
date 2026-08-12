@@ -37,6 +37,17 @@
 # include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
 #endif  /* WISP_VERSION */
 
+/* Stringification macro wizardry:
+ * https://gcc.gnu.org/onlinedocs/gcc-4.8.5/cpp/Stringification.html
+ *
+ *   #define foo 4
+ *   str (foo)
+ *        ==> "foo"
+ *   xstr (foo)
+ *        ==> xstr (4)
+ *        ==> str (4)
+ *        ==> "4"
+ */
 #define xstr(s) str(s)
 #define str(s) #s
 
