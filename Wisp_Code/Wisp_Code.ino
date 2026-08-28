@@ -89,8 +89,7 @@ void setup() {
   /* DISABLE FUNCTION SUMMARIES FOR FIELD DEPLOYMENT!
    * Function summaries are disabled to prevent excessive writing to SD card
    * as well as possible memory leak during deployment.
-   * This issue may be fixed after merge with main, test later.
-   */
+   * This issue may be fixed after merge with main, test later. */
   // ENABLE_FUNC_SUMMARIES;
 
   // Start the serial interface
@@ -105,8 +104,7 @@ void setup() {
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
   /* Both rails should be on during sleep to minimize effects of power surges
-   * when turning on rails during wakeup.
-   */
+   * when turning on rails during wakeup. */
   hypnos.setSleepConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
   // Enable the hypnos rails
@@ -133,7 +131,6 @@ void setup() {
 }
 
 void loop() {
-
 #if WISP_VERSION==2
   // Enable watchdog to prevent hang in measurement or logging
   Watchdog.enable(16000);
