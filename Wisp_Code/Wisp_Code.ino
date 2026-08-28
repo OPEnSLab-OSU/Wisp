@@ -13,7 +13,7 @@
 
 // A packet is logged every 5 minutes, so mqtt will publish a batch of 72
 // packets every 6 hours
-#define WISP_BATCH_SIZE 72
+#define WISP_BATCH_SIZE_MAX 72
 
 // I2C device addresses used with multiplexer in V2
 #define I2C_ADDR_DFGAS 0x74
@@ -61,8 +61,10 @@ Loom_Analog analog(manager);
 #if WISP_USE_LTE==1
 // 4G Connectivity
 Loom_LTE lte(manager, "hologram", "", "");
-Loom_BatchSD batchSD(hypnos, WISP_BATCH_SIZE);
+Loom_BatchSD batchSD(hypnos, 2);
 Loom_MongoDB mqtt(manager, lte);
+uint8_t currentBatchSize = 2;
+uint8_t targetBatchSize = 2;
 #endif  /* WISP_USE_LTE */
 
 #if WISP_VERSION==1
@@ -159,12 +161,25 @@ void loop() {
   // Log the data to the SD
   hypnos.logToSD();
 
+#if WISP_USE_LTE==1
+  /* After sd.log() trnucates log file, apply target batch size */
+  if (batchSD.getCurrentBatch() == 1 && targetBatchSize != currentBatchSize) {
+    currentBatchSize = targetBatchSize;
+    batchSD = Loom_BatchSD(hypnos, currentBatchSize);
+  }
+#endif  /* WISP_USE_LTE */
+
   // Disable watchdog before transmitting 4G data, this can take some time
   Watchdog.disable();
 
 #if WISP_USE_LTE==1
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
+
+  /* Ramp up target batch size after each transmission, but don't apply it yet */
+  if (batchSD.shouldPublish()) {
+    targetBatchSize = min(WISP_BATCH_SIZE_MAX, 2 * currentBatchSize);
+  }
 #endif  /* WISP_USE_LTE */
 
   // Set the interrupt duration
