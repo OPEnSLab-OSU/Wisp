@@ -2,7 +2,7 @@
 An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The device logs air quality index parameters to the MongoDB database.
 
 
-# Wisp | [Updates](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/WeatherChimes-Updates) | [Github](https://github.com/OPEnSLab-OSU/Wisp) | [Wisp V2](#wisp-v2)
+# Wisp | [Github](https://github.com/OPEnSLab-OSU/Wisp) | [Wisp V2](#wisp-v2)
 
 
 Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
