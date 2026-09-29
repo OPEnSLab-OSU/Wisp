@@ -102,7 +102,7 @@ The Wisp device draws approximately 20mA when initializing and 117mA during sens
 
 ## State Machine Diagram
 
-Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT (Message Queueing Telemetry Transport) broker which is being run on an OSU server.
+Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT (Message Queueing Telemetry Transport).
 
 
 <p align = "center">
