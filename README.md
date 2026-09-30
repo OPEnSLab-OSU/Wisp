@@ -197,10 +197,6 @@ The Wisp V2 is designed as a highly modular sensing platform capable of measurin
 
 ## Resource List
 
-* [Bill of Materials](https://docs.google.com/spreadsheets/d/13oa5u93MhcqooUcmy1VRU9iUPKT63fNZ0G9CzINLz3U/edit?usp=sharing)
-* [Build Guide](https://docs.google.com/document/d/1GEz6TniiCkyVJEQ1pW2CY4VUsa4j7f_cYcETQBzS96c/edit?usp=sharing)
-* [Power Budget](https://docs.google.com/spreadsheets/d/1JvEoA3bKAHnuwdlADwK3NVbHGGMLVKzisJuQMVjQb0Y/edit?usp=sharing)
-* [Wisp PCB v0.zip](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/files/14748869/Wisp.PCB.v0.zip)
 * [Loom V4 Repository](https://github.com/OPEnSLab-OSU/Loom-V4)
 
 ## Tutorials
