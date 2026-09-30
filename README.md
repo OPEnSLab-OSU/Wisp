@@ -48,7 +48,7 @@ Figure 10: Wisp V2 PCB
 </p>
 
 ### Hardware
-The Wisp V2 is designed as a highly modular sensing platform capable of measuring a customizable array of environmental parameters. Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings, the V2 architecture integrates an I2C multiplexer to support the full line of DFRobot gas sensors (including CO, O3, SO2, and H2S) and the T6793-5k CO2 sensor as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. By retaining the ability to stream data to MongoDB while increasing sensor flexibility.
+The Wisp V2 is designed as a highly modular sensing platform capable of measuring a customizable array of environmental parameters. Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings, the V2 architecture integrates an I2C multiplexer to support several DFRobot gas sensors (including CO, O3, and SO2) as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. By retaining the ability to stream data to MongoDB while increasing sensor flexibility.
 
 <div align="center">
 
