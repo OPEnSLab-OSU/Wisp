@@ -58,6 +58,7 @@ The Wisp V2 is designed as a highly modular sensing platform capable of measurin
 | :--- | :---: | :---: | :---: | :---: |
 | Ambient Temperature | SHT31 | 0.01 ℃ | ±0.3 ℃ | -40 to 125 ℃ |
 | Humidity | SHT31 | 0.015 %RH | ±3 %RH | 0 to 100 %RH |
+| Carbon Monoxide (CO) | SEN0466 | 1 ppm | ±10% | 0 to 1000 ppm |
 |  |  | **Max Drift** | **Precision** | **Full Range** |
 | Particulate Matter 1.0 | SEN66 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
 | Particulate Matter 2.5 | SEN66 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
@@ -66,7 +67,6 @@ The Wisp V2 is designed as a highly modular sensing platform capable of measurin
 | Volatile Organic Compounds | SEN66 | |  |  |
 | Nitrogen Oxides Index | SEN66 |  |  | |
 | Carbon Dioxide (CO2) | SEN66 |  |  |  |
-| Carbon Monoxide (CO) | SEN0466 | 1 ppm | ±10% | 0 to 1000 ppm |
 | Sulfur Dioxide (SO2) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
 | Ozone (O3) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
 
