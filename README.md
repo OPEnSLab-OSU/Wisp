@@ -57,7 +57,7 @@ The Wisp V2 is designed as a highly modular sensing platform capable of measurin
 | **Specification** | **Sensor** | **Resolution** | **Accuracy** | **Full Range** |
 | :--- | :---: | :---: | :---: | :---: |
 | Ambient Temperature | SHT31 | 0.01 ℃ | ±0.3 ℃ | -40 to 125 ℃ |
-| Humidity | SHT31 | 0.015 %RH | ±3 %RH | 0 to 100 %RH |
+| Humidity | SHT31 | 0.01 %RH | ±2 %RH | 0 to 100 %RH |
 |  |  | **Repeatability** | **Accuracy** | **Full Range** |
 | Carbon Dioxide (CO2) | SEN66 | ±10 ppm | ± (50 ppm + 2.5 % m.v.) | 0 to 40000 ppm |
 |  |  | **Max Drift** | **Precision** | **Full Range** |
