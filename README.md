@@ -67,6 +67,7 @@ The Wisp V2 is designed as a highly modular sensing platform capable of measurin
 | Particulate Matter 2.5 | SEN66 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
 | Particulate Matter 4.0 | SEN66 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
 | Particulate Matter 10 | SEN66 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
+|  |  | **Resolution** | **Accuracy** | **Full Range** |
 | Carbon Monoxide (CO) | SEN0466 | 1 ppm | ±10% | 0 to 1000 ppm |
 | Sulfur Dioxide (SO2) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
 | Ozone (O3) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
