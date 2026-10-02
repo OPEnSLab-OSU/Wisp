@@ -143,7 +143,6 @@ void loop() {
 #if WISP_VERSION==1
   // Enable watchdog to prevent hang in logging, but SEN55 will time out
   Watchdog.enable(16000);
-  Watchdog.reset();
 #endif
 
   // Pet the dog again just in case measure took a few seconds
