@@ -7,7 +7,7 @@
 /* CHANGE PARAMETERS! */
 #define WISP_VERSION  2  // 1 or 2
 #define WISP_INSTANCE 1  // Unit number
-#define WISP_USE_LTE  1  // 0 or 1
+#define WISP_USE_LTE  true  // true or false
 
 #define WISP_SAMPLE_MINUTES 5
 
@@ -23,11 +23,11 @@
 // MQTT credentials file on SD card
 #define MQTT_CREDS_PATH "mqtt_creds.json"
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
 # include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
 # include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 # include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
-#endif  /* WISP_USE_LTE */
+#endif
 
 #if WISP_VERSION==1
 # include <Sensors/I2C/Loom_SEN55/Loom_SEN55.h>
@@ -35,7 +35,7 @@
 
 #elif WISP_VERSION==2
 # include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
-#endif  /* WISP_VERSION */
+#endif
 
 /* Stringification macro wizardry:
  * https://gcc.gnu.org/onlinedocs/gcc-4.8.5/cpp/Stringification.html
@@ -58,14 +58,14 @@ Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 // Reads the battery voltage
 Loom_Analog analog(manager);
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
 // 4G Connectivity
 Loom_LTE lte(manager, "hologram", "", "");
 Loom_BatchSD batchSD(hypnos, 2);
 Loom_MongoDB mqtt(manager, lte);
 uint8_t currentBatchSize = 2;
 uint8_t targetBatchSize = 2;
-#endif  /* WISP_USE_LTE */
+#endif
 
 #if WISP_VERSION==1
 // Main air quality, temperature, and humidity sensing
@@ -75,7 +75,7 @@ Loom_SHT31 sht(manager);
 #elif WISP_VERSION==2
 /* Initialize I2C sensors through multiplexer */
 Loom_Multiplexer mux(manager, {I2C_ADDR_DFGAS, I2C_ADDR_SEN66, I2C_ADDR_SHT31});
-#endif  /* WISP_VERSION */
+#endif
 
 void isrTrigger()
 {
@@ -95,10 +95,10 @@ void setup() {
   // Start the serial interface
   manager.beginSerial();
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   // Set the LTE board to only powerup when a batch is ready to be sent
   lte.setBatchSD(batchSD);
-#endif  /* WISP_USE_LTE */
+#endif
 
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
@@ -110,13 +110,13 @@ void setup() {
   // Enable the hypnos rails
   hypnos.enable();
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   // Time Sync Using LTE
   hypnos.setNetworkInterface(&lte);
 
   // Read the MQTT creds file to supply the device with MQTT credentials
   mqtt.loadConfigFromJSON(hypnos.readFile(MQTT_CREDS_PATH));
-#endif  /* WISP_USE_LTE */
+#endif
 
   // Initialize all modules
   // LTE initialization takes ~15 seconds, do this BEFORE starting the Watchdog
@@ -125,9 +125,9 @@ void setup() {
   // Register the ISR and attach to the interrupt
   hypnos.registerInterrupt(isrTrigger);
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   hypnos.networkTimeUpdate();
-#endif  /* WISP_USE_LTE */
+#endif
 }
 
 void loop() {
@@ -158,18 +158,18 @@ void loop() {
   // Log the data to the SD
   hypnos.logToSD();
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   /* After sd.log() trnucates log file, apply target batch size */
   if (batchSD.getCurrentBatch() == 1 && targetBatchSize != currentBatchSize) {
     currentBatchSize = targetBatchSize;
     batchSD = Loom_BatchSD(hypnos, currentBatchSize);
   }
-#endif  /* WISP_USE_LTE */
+#endif
 
   // Disable watchdog before transmitting 4G data, this can take some time
   Watchdog.disable();
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 
@@ -177,7 +177,7 @@ void loop() {
   if (batchSD.shouldPublish()) {
     targetBatchSize = min(WISP_BATCH_SIZE_MAX, 2 * currentBatchSize);
   }
-#endif  /* WISP_USE_LTE */
+#endif
 
   // Set the interrupt duration
   hypnos.setInterruptDuration(TimeSpan(0, 0, WISP_SAMPLE_MINUTES, 0));
@@ -185,10 +185,10 @@ void loop() {
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
 
-#if WISP_USE_LTE==1
+#if WISP_USE_LTE
   // Sync time (network updates can also block for several seconds)
   hypnos.networkTimeUpdate();
-#endif  /* WISP_USE_LTE */
+#endif
 
   // Set the hypnos to sleep, don't wait for user to open serial monitor
   hypnos.sleep(false);
