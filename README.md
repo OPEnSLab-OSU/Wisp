@@ -22,7 +22,7 @@ Wisp is an open-source air quality monitoring system, a low-cost hardware and so
 
 ## Wisp V2
 
-The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O3 (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO2 (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO2 from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. Currently in the prototype testing phase, the Wisp V2 provides a robust, customizable platform for long-term field studies and is slated for deployment in May 2026.
+The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O3 (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO2 (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO2 from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
 
 <div align="center">
 <table>
@@ -205,6 +205,10 @@ Figure 8: CSV File output from Wisp unit
 ## Resource List
 
 * [Loom V4 Repository](https://github.com/OPEnSLab-OSU/Loom-V4)
+* TODO: Add power budget once ready
+* TODO: Add link(s) to pcb once ready
+* TODO: Add BOM once access format decided
+* TODO: Add build guide once ready
 
 ## Tutorials
 
