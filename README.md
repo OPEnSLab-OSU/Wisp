@@ -81,6 +81,7 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 
 
 ## Wisp V1 
+<div align="center">
 
 ### Wisp V1 Sensor Specs
 
@@ -101,7 +102,7 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 | Project Cost | | | |||<800 | $|
 | Logs Data to SD | | | | ||Time | date/hour/min |
 | SD and USB are easily accessible |
-
+</div>
 
 
 
