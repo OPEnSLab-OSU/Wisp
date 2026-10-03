@@ -5,11 +5,12 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
 
 <p align="center">
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/7135006f-c615-40a3-88c8-dcc87a8b4813" />
+
+![Deployed Wisp v2 Unit](assets/images/wisp_v2_deployed.jpg)
 </p>
 
 <p align="center">
-Figure 1: Deployed Wisp unit in Napa Valley
+Figure 1: Deployed Wisp v2 Unit
 </p>
 
 <!-- omit in toc -->
@@ -38,27 +39,12 @@ Wisp is an open-source air quality monitoring system, a low-cost hardware and so
 
 The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O3 (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO2 (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO2 from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
 
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <img width="400" alt="image" src="https://github.com/user-attachments/assets/62591cfc-5b2d-4233-a8a0-235041e55f9a" />
-    </td>
-    <td align="center" width="50%">
-      <img width="400" src="https://github.com/user-attachments/assets/99ca0bdf-7a26-4a01-a52e-a6c57e7c323d">
-    </td>
-  </tr>
-</table>
-</div>
 
-<p align="center">
-Figure 9: 3D Renders of the Wisp V2
-</p>
 <p align="center">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
 </p>
 <p align="center">
-Figure 10: Wisp V2 PCB
+Figure 2: Wisp V2 PCB
 </p>
 
 <div align="center">
@@ -97,6 +83,15 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 
 
 ## Wisp V1 
+
+<p align="center">
+
+![Deployed Wisp v1 Unit](assets/images/wisp_v1_deployed.jpg)
+</p>
+<p align="center">
+Figure 3: Wisp V1 Deployed in Napa Valley
+</p>
+
 <div align="center">
 
 ### Wisp V1 Sensor Specs
@@ -135,7 +130,7 @@ The Pelican case has three holes drilled on the side to accommodate the PG7 cabl
 <p>
 
 <p align = "center">
-Figure 2: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial sensors
+Figure 4: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial sensors
 </p>
 <p align="center">
  Other I2C sensors may also be connected as long as there is relevant code to handle requesting data on the Feather M0.
@@ -148,7 +143,7 @@ Figure 2: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial
 
 </p>
 <p align="center">
-Figure 3: Fully built Wisp device
+Figure 5: Fully built Wisp device
 
 ### Electronics
 
@@ -157,7 +152,7 @@ Figure 3: Fully built Wisp device
 <p>
 
 <p align = "center">
-Figure 4: Block diagram of Wisp electronics
+Figure 6: Block diagram of Wisp electronics
 </p>
 
 The most relevant features of the electronics system are the following:
@@ -184,7 +179,7 @@ Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode,
 </p>
 
 <p align = "center">
-Figure 5: Data-flow handling chart
+Figure 7: Data-flow handling chart
 </p>
 
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number” to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data.
@@ -197,7 +192,7 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 </p>
 
 <p align = "center">
-Figure 6: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
+Figure 8: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
@@ -205,7 +200,7 @@ Figure 6: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
-Figure 7: VOC index graph from 6/25/25 - 9/3/25 in Washington
+Figure 9: VOC index graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
@@ -213,7 +208,7 @@ Figure 7: VOC index graph from 6/25/25 - 9/3/25 in Washington
 </p>
 
 <p align = "center">
-Figure 8: CSV File output from Wisp unit
+Figure 10: CSV File output from Wisp unit
 </p>
 
 
