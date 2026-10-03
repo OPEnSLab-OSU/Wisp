@@ -18,8 +18,6 @@ Figure 1: Deployed Wisp unit in Napa Valley
 ## Abstract
 Wisp is an open-source air quality monitoring system, a low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
 
-
-
 ## Wisp V2
 
 The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O3 (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO2 (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO2 from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
@@ -47,16 +45,6 @@ Figure 9: 3D Renders of the Wisp V2
 Figure 10: Wisp V2 PCB
 </p>
 
-### Hardware
-The Wisp V2 is designed as a highly modular sensing platform capable of measuring a customizable array of environmental parameters. Each Wisp v2 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), nitrogen Oxides(NOx), and Carbon Dioxide (CO2) with the SEN66; and air temperature and humidity with the SHT-31, and log data at user-defined intervals to the cloud MongoDB database. Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which supports Carbon Dioxide (CO2) sensing. The V2 architecture also integrates an I2C multiplexer to support several DFRobot Gravity gas sensors (including CO, O3, and SO2) as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. 
-
-The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
-
-The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
-
-
-The Wisp device produced at the OPEnS Lab aims to collect environmental data. Data is streamed in real time via a local server to MongoDB, an online database. Computer applications can subscribe to these data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
-
 <div align="center">
 
 ### Wisp V2 Sensor Specs
@@ -82,7 +70,17 @@ The Wisp device produced at the OPEnS Lab aims to collect environmental data. Da
 
 </div>
 
-## Wisp V1
+### Hardware
+Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO2) sensing. The V2 architecture also integrates an I2C multiplexer to support several DFRobot Gravity gas sensors (including CO, O3, and SO2) as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. 
+
+The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
+
+The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
+
+Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an online database via MQTT. Computer applications can subscribe to these MQTT data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
+
+
+## Wisp V1 
 
 ### Wisp V1 Sensor Specs
 
@@ -108,12 +106,10 @@ The Wisp device produced at the OPEnS Lab aims to collect environmental data. Da
 
 
 ### Hardware In Context
-Like the Wisp v2 units, each Wisp unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
+Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
 
 
 ### Hardware Description
-**Version 1**
-\
 The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set. This allows for the [SHT31](https://www.digikey.com/en/products/detail/dfrobot/SEN0385/13590873?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7ZY7lfRuItuFSmiqk9HOFaHFD5hMuSXhRHAJTuwCGXXSsgWjr_exEBoC_ecQAvD_BwE) and [SEN55](https://www.digikey.com/en/products/detail/sensirion-ag/SEN55-SDN-T/16342756?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7R_zAgQmUyPsM8nMsHZEcr-VeQwOGRPi851icy3Jx-7ERo_M-4K_oRoCu1gQAvD_BwE) sensor to be swapped out easily. Inside the case, a custom 3D printed base plate holds the Featherwing doubler, LTE cellular board, and batteries securely in place. A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by a particulate matter sensor (SEN55) and temperature & humidity sensor (SHT31). The v3.3 Hypnos board turns peripherals on and off to preserve power, wakes up at intervals using the embedded DS3231 RTC, transmits data via cellular LTE, and stores data onboard a microSD card. In order to enable 4G capabilities, the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, a solar charger, and a 5 Watt solar panel is implemented.
 
 
