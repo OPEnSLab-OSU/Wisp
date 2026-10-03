@@ -1,4 +1,5 @@
-# Wisp | [Github](https://github.com/OPEnSLab-OSU/Wisp) | [Wisp V1](#wisp-v1)
+<!-- omit in toc -->
+# Wisp | [Github](https://github.com/OPEnSLab-OSU/Wisp) [Wisp V1](#wisp-v1)
 An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The device logs air quality index parameters to the MongoDB database.
 
 Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
@@ -11,8 +12,27 @@ Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - b
 Figure 1: Deployed Wisp unit in Napa Valley
 </p>
 
+<!-- omit in toc -->
 ## Abstract
 Wisp is an open-source air quality monitoring system, a low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
+
+<!-- omit in toc -->
+## Table of Contents
+- [Wisp V2](#wisp-v2)
+  - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
+  - [Hardware](#hardware)
+- [Wisp V1](#wisp-v1)
+  - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
+  - [Hardware In Context](#hardware-in-context)
+  - [Hardware Description](#hardware-description)
+  - [Electronics](#electronics)
+  - [Current Draw Test](#current-draw-test)
+  - [State Machine Diagram](#state-machine-diagram)
+  - [Deployment History](#deployment-history)
+- [Resource List](#resource-list)
+  - [Wisp v2](#wisp-v2-1)
+  - [Wisp v1](#wisp-v1-1)
+
 
 ## Wisp V2
 
