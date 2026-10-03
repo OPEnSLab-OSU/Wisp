@@ -204,11 +204,12 @@ Figure 8: CSV File output from Wisp unit
 ## Resource List
 
 * [Loom V4 Repository](https://github.com/OPEnSLab-OSU/Loom-V4)
+* [MongoDB manual](https://docs.mongodb.com/manual/)
+
+### Wisp v2
 * TODO: Add power budget once ready
 * TODO: Add link(s) to pcb once ready
 * TODO: Add BOM once access format decided
 * TODO: Add build guide once ready
 
-## Tutorials
-
-* [MongoDB manual](https://docs.mongodb.com/manual/)
+### Wisp v1
