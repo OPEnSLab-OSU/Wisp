@@ -2,7 +2,7 @@
 # Wisp
 An open-source remote air quality sensing device made by OPEnS Lab OSU. The device logs air quality parameters to the MongoDB database.
 
-Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
+Project leads: **Quinn Yockey** \<yockeyq@oregonstate.edu\>, **Shion Britten** \<brittesh@oregonstate.edu\>
 
 <div align="center">
   <img src="assets/images/wisp_v2_deployed.jpg" width="60%">
