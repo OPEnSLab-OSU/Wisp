@@ -15,7 +15,12 @@ Figure 1: Deployed Wisp v2 Unit
 
 <!-- omit in toc -->
 ## Abstract
-Wisp is an open-source air quality monitoring system, a low-cost hardware and software suite that enables near real-time access to in-situ environmental sensor data (including particulate matter 1.0|2.5|4.0|10.0, volatile organic compounds, nitrogen oxides, temperature, and relative humidity) anywhere with a WiFi internet or cellular connection. Scientists, educators, and artists alike can use this tool to obtain and interact with environmental data in new and innovative ways, as well as collaborate remotely. Transforming data collection processes of environmental sensors into Internet of Things (IoT) compatible formats opens new doors into accessing, understanding, and interacting with natural phenomena. Wisp not only enables users to observe data online, but can also transform data into auditory signals and soundscapes through sonification processes or creative animations using newly-created computer applications.
+Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality. Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost. To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
+* Data is being used with analysis of actual grape samples in effort to model smoke taint risk
+* Measures 12 air quality parameters including particulate matter, CO₂, CO, SO₂
+* Solar battery charger and 4G telemetry allows use in remote locations
+* Low-cost (under $1500) compared to commercial competitors
+* Open-source software and hardware
 
 <!-- omit in toc -->
 ## Table of Contents
