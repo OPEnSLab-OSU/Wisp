@@ -219,7 +219,7 @@ Figure 10: CSV File output from Wisp unit
 ### Wisp v2
 * TODO: Add power budget once ready
 * TODO: Add link(s) to pcb once ready
-* TODO: Add BOM once access format decided
+* [Bill of Materials](docs/WISP_v2_BOM_2026.xlsx)
 * TODO: Add build guide once ready
 
 ### Wisp v1
