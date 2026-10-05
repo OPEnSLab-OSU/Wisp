@@ -183,19 +183,45 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
   <figcaption>Figure 10: CSV File output from Wisp unit</figcaption>
 </figure>
 
-
-
-
-
 ## Resource List
 
 * [Loom V4 Repository](https://github.com/OPEnSLab-OSU/Loom-V4)
 * [MongoDB manual](https://docs.mongodb.com/manual/)
 
-### Wisp v2
-* TODO: Add power budget once ready
-* TODO: Add link(s) to pcb once ready
-* TODO: Add BOM once access format decided
-* TODO: Add build guide once ready
+### Sensor Datasheets
 
-### Wisp v1
+* [Sensirion SEN55](https://sensirion.com/media/documents/6791EFA0/62A1F68F/Sensirion_Datasheet_Environmental_Node_SEN5x.pdf)
+* [Sensirion SEN66](https://sensirion.com/media/documents/FAFC548D/693FBB15/PS_DS_SEN6x.pdf)
+* [Sensirion SHT31](https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf)
+* [Maxim DS3231](https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231.pdf)
+
+### LTE Board
+
+* [SparkFun LTE CAT M1/NB-IoT Shield - SARA-R4](https://www.sparkfun.com/sparkfun-lte-cat-m1-nb-iot-shield-sara-r4.html)
+* [uBlox SARA-R410M-02B](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8899/SARA-R410M-02B.pdf)
+
+### SAMD Microprocessor
+
+* [Adafruit Feather M0 WiFi with uFL](https://www.adafruit.com/product/3061)
+* [Atmel SAMD21G18A Cortex M0+ Microcontroller](https://cdn-learn.adafruit.com/assets/assets/000/044/363/original/samd21.pdf?1501106093)
+
+### In-House PCB Schematics
+
+* [Hypnos v3.3](asset/schematics/hypnos_v3.3.pdf)
+* [Wisp v2](asset/schematics/wisp_v2.pdf)
+* [Wisp v1](asset/schematics/wisp_v1.pdf)
+
+### Bill of Materials
+
+* [Wisp v2]() TODO
+* [Wisp v1]() TODO
+
+### Power Budget
+
+* [Wisp v2]() TODO
+* [Wisp v1]() TODO
+
+### Build Guide
+
+* [Wisp v2]() TODO
+* [Wisp v1]() TODO
