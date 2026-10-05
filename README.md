@@ -37,7 +37,7 @@ Wisp is an open-source air quality monitoring system, a low-cost hardware and so
 
 ## Wisp V2
 
-The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O3 (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO2 (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO2 from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I2C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
+The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O₃ (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO₂ (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO₂ from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I²C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
 
 
 <p align="center">
@@ -53,9 +53,9 @@ Figure 2: Wisp V2 PCB
 
 | **Specification** | **Sensor** | **Repeatability** | **Accuracy** | **Full Range** |
 | :--- | :---: | :---: | :---: | :---: |
-| Ambient Temperature | SHT31 | ±0.07 ℃ | ±0.3 ℃ | -40 to 125 ℃ |
+| Ambient Temperature | SHT31 | ±0.07 °C | ±0.3 °C | -40 to 125 °C |
 | Humidity | SHT31 | ±0.015 %RH | ±2 %RH | 0 to 100 %RH |
-| Carbon Dioxide (CO2) | SEN66 | ±10 ppm | ± (50 ppm + 2.5 % m.v.) | 0 to 40000 ppm |
+| Carbon Dioxide (CO₂) | SEN66 | ±10 ppm | ± (50 ppm + 2.5 % m.v.) | 0 to 40000 ppm |
 | **Specification** | **Sensor** | **Repeatability** | **Device Variation** | **Full Range** |
 | Volatile Organic Compounds | SEN66 |±5 VOC index | ±15 VOC index | 1 to 500 VOC index |
 | Nitrogen Oxides Index | SEN66 |±10 NOx index | ±50 NOx index | 1 to 500 NOx index |
@@ -66,14 +66,14 @@ Figure 2: Wisp V2 PCB
 | Particulate Matter 10 | SEN66 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
 |  |  | **Resolution** | **Accuracy** | **Full Range** |
 | Carbon Monoxide (CO) | SEN0466 | 1 ppm | ±10% | 0 to 1000 ppm |
-| Sulfur Dioxide (SO2) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
-| Ozone (O3) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
+| Sulfur Dioxide (SO₂) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
+| Ozone (O₃) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
 
 
 </div>
 
 ### Hardware
-Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO2) sensing. The V2 architecture also integrates an I2C multiplexer to support several DFRobot Gravity gas sensors (including CO, O3, and SO2) as well as any other I2C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. 
+Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. 
 
 The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
 
@@ -99,12 +99,12 @@ Figure 3: Wisp V1 Deployed in Napa Valley
 | Specification | Sensor | Resolution | | Accuracy | |Full Range | |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |------------- |------------- |
 | | | **Value**|**Metric**| **Value** | **Metric**| **Value** | **Metric**|
-| Senses Ambient Temperature| SHT31| 0.01| ℃| ±0.3 | ℃| -40 - 125 |℃|
+| Senses Ambient Temperature| SHT31| 0.01| °C| ±0.3 | °C| -40 - 125 |°C|
 | Senses Humidity |SHT31| 0.015|%RH| ±3|%RH| 0 - 100 |%RH|
-| Particulate Matter 1.0 |SEN55| ±5 |ug/m^3| ±5|ug/m^3 | 0 - 1000|ug/m^3|
-| Particulate Matter 2.5 |SEN55| ±5 |ug/m^3| ±5|ug/m^3 | 0 - 1000|ug/m^3|
-| Particulate Matter 4 |SEN55| ±25 |ug/m^3| ±25|ug/m^3 | 0 - 1000|ug/m^3|
-| Particulate Matter 10 |SEN55| ±25 |ug/m^3| ±25|ug/m^3 | 0 - 1000|ug/m^3|
+| Particulate Matter 1.0 |SEN55| ±5 |μg/m³| ±5|μg/m³ | 0 - 1000|μg/m³|
+| Particulate Matter 2.5 |SEN55| ±5 |μg/m³| ±5|μg/m³ | 0 - 1000|μg/m³|
+| Particulate Matter 4 |SEN55| ±25 |μg/m³| ±25|μg/m³ | 0 - 1000|μg/m³|
+| Particulate Matter 10 |SEN55| ±25 |μg/m³| ±25|μg/m³ | 0 - 1000|μg/m³|
 | Volatile Organic Compounds |SEN55| ±5 |VOC index points| ±5| VOC index points |1 - 500 |VOC index points|
 | Nitrogen Oxides Index |SEN55| ±10 |NOx index points| ±10| NOx index points |1 - 500 |NOx index points|
 | 5 Watt Solar Panel| |||||||
@@ -118,7 +118,7 @@ Figure 3: Wisp V1 Deployed in Napa Valley
 
 
 ### Hardware In Context
-Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I2C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
+Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
 
 
 ### Hardware Description
@@ -130,10 +130,10 @@ The Pelican case has three holes drilled on the side to accommodate the PG7 cabl
 <p>
 
 <p align = "center">
-Figure 4: Wisp v1 PCB with footprints for analog, digital, I2C, and other serial sensors
+Figure 4: Wisp v1 PCB with footprints for analog, digital, I²C, and other serial sensors
 </p>
 <p align="center">
- Other I2C sensors may also be connected as long as there is relevant code to handle requesting data on the Feather M0.
+ Other I²C sensors may also be connected as long as there is relevant code to handle requesting data on the Feather M0.
 </p>
 
 <p>&nbsp;</p>
