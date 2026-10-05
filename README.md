@@ -4,14 +4,16 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 
 Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
 
-<p align="center">
-
-![Deployed Wisp v2 Unit](assets/images/wisp_v2_deployed.jpg)
-</p>
-
-<p align="center">
-Figure 1: Deployed Wisp v2 Unit
-</p>
+<div align="center" style="display:flex" width="100%" height="auto">
+  <figure align="middle" width="50%" style="flex:50%">
+    <img src="assets/images/wisp_v2_deployed.jpg" width="500" height="auto">
+    <figcaption>Figure 1: Deployed Wisp v2 Unit</figcaption>
+  </figure>
+  <figure align="middle" width="50%" style="flex:50%">
+    <img src="assets/images/wisp_v1_deployed.jpg" width="500" height="auto">
+    <figcaption>Figure 2: Deployed Wisp v1 Unit</figcaption>
+  <figure>
+</div>
 
 <!-- omit in toc -->
 ## Abstract
@@ -83,14 +85,6 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 
 
 ## Wisp V1
-
-<p align="center">
-
-![Deployed Wisp v1 Unit](assets/images/wisp_v1_deployed.jpg)
-</p>
-<p align="center">
-Figure 3: Wisp V1 Deployed in Napa Valley
-</p>
 
 <div align="center">
 
