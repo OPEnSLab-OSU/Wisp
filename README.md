@@ -46,7 +46,7 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8" />
 </p>
 <p align="center">
-Figure 2: Wisp V2 PCB
+Figure 3: Wisp V2 PCB
 </p>
 
 <div align="center">
