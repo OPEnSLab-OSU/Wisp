@@ -37,9 +37,13 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
   - [State Machine Diagram](#state-machine-diagram)
   - [Deployment History](#deployment-history)
 - [Resource List](#resource-list)
-  - [Wisp v2](#wisp-v2-1)
-  - [Wisp v1](#wisp-v1-1)
-
+  - [Sensor Datasheets](#sensor-datasheets)
+  - [LTE Board](#lte-board)
+  - [SAMD Microprocessor](#samd-microprocessor)
+  - [In-House PCB Schematics](#in-house-pcb-schematics)
+  - [Bill of Materials](#bill-of-materials)
+  - [Power Budget](#power-budget)
+  - [Build Guide](#build-guide)
 
 ## Wisp V2
 
