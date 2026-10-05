@@ -4,6 +4,15 @@ An open-source remote air quality sensing device made by OPEnS Lab OSU. The devi
 
 Project leads: **Quinn Yockey** \<yockeyq@oregonstate.edu\>, **Shion Britten** \<brittesh@oregonstate.edu\>
 
+<!-- omit in toc -->
+## Abstract
+Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality. Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost. To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
+* Data is being used with analysis of actual grape samples in effort to model smoke taint risk
+* Measures 12 air quality parameters including particulate matter, CO₂, CO, SO₂
+* Solar battery charger and 4G telemetry allows use in remote locations
+* Low-cost (under $1500) compared to commercial competitors
+* Open-source software and hardware
+
 <div align="center">
   <img src="assets/images/wisp_v2_deployed.jpg" width="60%">
   <p>Figure 1: Deployed Wisp v2 Unit</p>
@@ -13,15 +22,6 @@ Project leads: **Quinn Yockey** \<yockeyq@oregonstate.edu\>, **Shion Britten** \
   <img src="assets/images/wisp_v1_deployed.jpg" width="60%">
   <p>Figure 2: Deployed Wisp v1 Unit</p>
 </div>
-
-<!-- omit in toc -->
-## Abstract
-Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality. Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost. To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
-* Data is being used with analysis of actual grape samples in effort to model smoke taint risk
-* Measures 12 air quality parameters including particulate matter, CO₂, CO, SO₂
-* Solar battery charger and 4G telemetry allows use in remote locations
-* Low-cost (under $1500) compared to commercial competitors
-* Open-source software and hardware
 
 <!-- omit in toc -->
 ## Table of Contents
