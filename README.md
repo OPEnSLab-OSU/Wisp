@@ -51,10 +51,9 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
   <figcaption>Figure 3: Wisp V2 PCB</figcaption>
 </figure>
 
-<div align="center">
-
 ### Wisp V2 Sensor Specs
 
+<div align="center">
 | **Specification** | **Sensor** | **Repeatability** | **Accuracy** | **Full Range** |
 | :--- | :---: | :---: | :---: | :---: |
 | Ambient Temperature | SHT31 | ±0.07 °C | ±0.3 °C | -40 to 125 °C |
@@ -72,11 +71,10 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 | Carbon Monoxide (CO) | SEN0466 | 1 ppm | ±10% | 0 to 1000 ppm |
 | Sulfur Dioxide (SO₂) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
 | Ozone (O₃) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
-
-
 </div>
 
 ### Hardware
+
 Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1.
 
 The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
@@ -85,13 +83,11 @@ The integration of particulate matter data into a centralized cloud database by 
 
 Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an online database via MQTT. Computer applications can subscribe to these MQTT data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
 
-
 ## Wisp V1
-
-<div align="center">
 
 ### Wisp V1 Sensor Specs
 
+<div align="center">
 | Specification | Sensor | Resolution | | Accuracy | |Full Range | |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |------------- |------------- |
 | | | **Value**|**Metric**| **Value** | **Metric**| **Value** | **Metric**|
@@ -110,8 +106,6 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 | Logs Data to SD | | | | ||Time | date/hour/min |
 | SD and USB are easily accessible |
 </div>
-
-
 
 ### Hardware In Context
 Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31/SHT30), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
@@ -147,8 +141,6 @@ The most relevant features of the electronics system are the following:
 * Cellular LTE access to upload data to the MongoDB server
 * WiFi access to upload data to MongoDB server
 
-
-
 ### Current Draw Test
 
 The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling. During transmission, the Wisp draws 305mA peak current. It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery. A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
@@ -166,6 +158,7 @@ Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode,
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number” to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data.
 
 ### Deployment History
+
 Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over the past four years, OPEnS has handled Wisp deployments at over 43 locations where their data is currently being used by UC Davis, OSU, and WSU.
 
 <figure>
