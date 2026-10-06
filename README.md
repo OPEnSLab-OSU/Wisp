@@ -14,13 +14,13 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 * Open-source software and hardware
 
 <div align="center">
-  <img src="assets/images/wisp_v2_deployed.jpg" width="60%">
-  <p>Figure 1: Deployed Wisp v2 Unit</p>
+    <img src="assets/images/wisp_v2_deployed.jpg" width="45%" height="auto">
+    <img src="assets/images/wisp_v1_deployed.jpg" width="45%" height="auto">
 </div>
 
-<div align="center">
-  <img src="assets/images/wisp_v1_deployed.jpg" width="60%">
-  <p>Figure 2: Deployed Wisp v1 Unit</p>
+<div width="95%" align="center">
+  <p width="45%" align="center">Figure 1 (Left): Deployed Wisp v2 Unit</p>
+  <p width="45%" align="center">Figure 2 (Right): Deployed Wisp v1 Unit</p>
 </div>
 
 <!-- omit in toc -->
@@ -216,7 +216,7 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 
 ### Bill of Materials
 
-* [Wisp v2]() TODO
+* [Wisp v2](docs/WISP_v2_BOM_2026.xlsx)
 * [Wisp v1]() TODO
 
 ### Power Budget
