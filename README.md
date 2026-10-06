@@ -78,7 +78,7 @@ A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wi
 
 The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
 
-Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an online database via MQTT. Computer applications can subscribe to these MQTT data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
+Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an online database via a MQTT broker. Computer applications can subscribe to these MQTT data stream feeds, and receive the data from the Wisp unit for data analysis.
 
 <div align="center">
   <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
@@ -88,7 +88,7 @@ Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an o
 
 ## Wisp V1
 
-Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31). Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of three 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and Wi-Fi connection to the publish/subscribe database.
+Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31). Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of three 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and Wi-Fi connection to the MQTT broker.
 
 <div align="center">
 
@@ -146,7 +146,7 @@ The Wisp device draws approximately 20mA when initializing and 117mA during sens
 
 ### State Machine Diagram
 
-Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT (Message Queueing Telemetry Transport).
+Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT broker.
 
 <div align="center">
   <img width="60%" src="https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/assets/105105069/84997534-468d-45ce-ac49-34dc9aa48742">
