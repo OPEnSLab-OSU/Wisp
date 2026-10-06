@@ -30,8 +30,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
   - [Hardware](#hardware)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
-  - [Hardware In Context](#hardware-in-context)
-  - [Hardware Description](#hardware-description)
+  - [Hardware](#hardware-1)
   - [Electronics](#electronics)
   - [Current Draw Test](#current-draw-test)
   - [State Machine Diagram](#state-machine-diagram)
@@ -80,7 +79,7 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 </div>
 
 ### Hardware
-Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows researchers to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1.
+Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows users to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1.
 
 The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
 
@@ -90,6 +89,8 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 
 
 ## Wisp V1
+
+Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31). Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
 
 <div align="center">
 
@@ -111,12 +112,7 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 </div>
 
 
-
-### Hardware In Context
-Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.0|2.5|1.0, Volatile Organic Compounds(VOC), and nitrogen Oxides(NOx) (SEN55); and air temperature and humidity (SHT31), and log data at user-defined intervals to the cloud database: MongoDB. Beyond the sensors used in this paper, the Wisp v1 is capable of using a variety of analog, digital, I²C, SDI-12, and other serial sensors via footprints on the Printed Circuit Board (PCB) detailed in the sections below. The Wisp can operate for up to a month on a battery capacity of 3 10050 mAh batteries with a logging period of every five minutes. Like the Wisp v2, the total operation duration of the Wisp v1 units can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source. The Wisp v1 is also capable of LTE and WIFI connection to the publish/subscribe database.
-
-
-### Hardware Description
+### Hardware
 The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set. This allows for the [SHT31](https://www.digikey.com/en/products/detail/dfrobot/SEN0385/13590873?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7ZY7lfRuItuFSmiqk9HOFaHFD5hMuSXhRHAJTuwCGXXSsgWjr_exEBoC_ecQAvD_BwE) and [SEN55](https://www.digikey.com/en/products/detail/sensirion-ag/SEN55-SDN-T/16342756?gclsrc=aw.ds&gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlgN9gdgD9ae58ipF8U3-kqXP&gclid=CjwKCAiAl-_JBhBjEiwAn3rN7R_zAgQmUyPsM8nMsHZEcr-VeQwOGRPi851icy3Jx-7ERo_M-4K_oRoCu1gQAvD_BwE) sensor to be swapped out easily. Inside the case, a custom 3D printed base plate holds the Featherwing doubler, LTE cellular board, and batteries securely in place. A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by a particulate matter sensor (SEN55) and temperature & humidity sensor (SHT31). The v3.3 Hypnos board turns peripherals on and off to preserve power, wakes up at intervals using the embedded DS3231 RTC, transmits data via cellular LTE, and stores data onboard a microSD card. In order to enable 4G capabilities, the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, a solar charger, and a 5 Watt solar panel is implemented.
 
 
