@@ -63,7 +63,7 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 | Ambient Temperature | SHT31 | ±0.07 °C | ±0.3 °C | -40 to 125 °C |
 | Humidity | SHT31 | ±0.015 %RH | ±2 %RH | 0 to 100 %RH |
 | Carbon Dioxide (CO₂) | SEN66 | ±10 ppm | ± (50 ppm + 2.5 % m.v.) | 0 to 40000 ppm |
-| **Specification** | **Sensor** | **Repeatability** | **Device Variation** | **Full Range** |
+|  |  | **Repeatability** | **Device Variation** | **Full Range** |
 | Volatile Organic Compounds | SEN66 |±5 VOC index or ±5% m.v. | ±15 VOC index or ±15% m.v. | 1 to 500 VOC index |
 | Nitrogen Oxides Index | SEN66 |±10 NOx index or ±10% m.v. | ±50 NOx index or ±50% m.v. | 1 to 500 NOx index |
 |  |  | **Max Drift** | **Precision** | **Full Range** |
