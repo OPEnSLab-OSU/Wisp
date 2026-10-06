@@ -64,8 +64,8 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 | Humidity | SHT31 | ±0.015 %RH | ±2 %RH | 0 to 100 %RH |
 | Carbon Dioxide (CO₂) | SEN66 | ±10 ppm | ± (50 ppm + 2.5 % m.v.) | 0 to 40000 ppm |
 | **Specification** | **Sensor** | **Repeatability** | **Device Variation** | **Full Range** |
-| Volatile Organic Compounds | SEN66 |±5 VOC index | ±15 VOC index | 1 to 500 VOC index |
-| Nitrogen Oxides Index | SEN66 |±10 NOx index | ±50 NOx index | 1 to 500 NOx index |
+| Volatile Organic Compounds | SEN66 |±5 VOC index or ±5% m.v. | ±15 VOC index or ±15% m.v. | 1 to 500 VOC index |
+| Nitrogen Oxides Index | SEN66 |±10 NOx index or ±10% m.v. | ±50 NOx index or ±50% m.v. | 1 to 500 NOx index |
 |  |  | **Max Drift** | **Precision** | **Full Range** |
 | Particulate Matter 1.0 | SEN66 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
 | Particulate Matter 2.5 | SEN66 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
@@ -95,17 +95,19 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 
 ### Wisp V1 Sensor Specs
 
-| Specification | Sensor | Resolution | | Accuracy | |Full Range | |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |------------- |------------- |
-| | | **Value**|**Metric**| **Value** | **Metric**| **Value** | **Metric**|
-| Senses Ambient Temperature| SHT31| 0.01| °C| ±0.3 | °C| -40 - 125 |°C|
-| Senses Humidity |SHT31| 0.015|%RH| ±3|%RH| 0 - 100 |%RH|
-| Particulate Matter 1.0 |SEN55| ±5 |μg/m³| ±5|μg/m³ | 0 - 1000|μg/m³|
-| Particulate Matter 2.5 |SEN55| ±5 |μg/m³| ±5|μg/m³ | 0 - 1000|μg/m³|
-| Particulate Matter 4 |SEN55| ±25 |μg/m³| ±25|μg/m³ | 0 - 1000|μg/m³|
-| Particulate Matter 10 |SEN55| ±25 |μg/m³| ±25|μg/m³ | 0 - 1000|μg/m³|
-| Volatile Organic Compounds |SEN55| ±5 |VOC index points| ±5| VOC index points |1 - 500 |VOC index points|
-| Nitrogen Oxides Index |SEN55| ±10 |NOx index points| ±10| NOx index points |1 - 500 |NOx index points|
+| Specification | Sensor | Resolution | Accuracy |Full Range |
+| :--- | :---: | :---: | :---: | :---: |
+| Ambient Temperature | SHT31 | ±0.07 °C | ±0.3 °C | -40 to 125 °C |
+| Humidity | SHT31 | ±0.015 %RH | ±2 %RH | 0 to 100 %RH |
+|  |  | **Repeatability** | **Device Variation** | **Full Range** |
+| Volatile Organic Compounds | SEN55 |±5 VOC index or ±5% m.v. | ±15 VOC index or ±15% m.v. | 1 to 500 VOC index |
+| Nitrogen Oxides Index | SEN55 |±10 NOx index or ±10% m.v.| ±50 NOx index or ±50% m.v. | 1 to 500 NOx index |
+|  |  | **Max Drift** | **Precision** | **Full Range** |
+| Particulate Matter 1.0 | SEN55 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
+| Particulate Matter 2.5 | SEN55 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³ |
+| Particulate Matter 4.0 | SEN55 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
+| Particulate Matter 10 | SEN55 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
+
 </div>
 
 
