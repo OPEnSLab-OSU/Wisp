@@ -5,17 +5,13 @@ An open-sourced remote air quality sensing device made by OPEnS Lab OSU. The dev
 Project leads: **Quinn Yockey** - yockeyq@oregonstate.edu, **Shion Britten** - brittesh@oregonstate.edu
 
 <div align="center">
-    <img src="assets/images/wisp_v2_deployed.jpg" width="500" height="auto">
-    <img src="assets/images/wisp_v1_deployed.jpg" width="500" height="auto">
+    <img src="assets/images/wisp_v2_deployed.jpg" width="45%" height="auto">
+    <img src="assets/images/wisp_v1_deployed.jpg" width="45%" height="auto">
 </div>
 
-<div align="center" width="100%">
-  <div width="50%">
-    <figcaption align="center">Figure 1: Deployed Wisp v2 Unit</figcaption>
-  </div>
-  <div width="50%>
-    <figcaption align="center">Figure 2: Deployed Wisp v1 Unit</figcaption>
-  </div>
+<div width="95%" align="center">
+  <p width="45%" align="center">Figure 1 (Left): Deployed Wisp v2 Unit</p>
+  <p width="45%" align="center">Figure 2 (Right): Deployed Wisp v1 Unit</p>
 </div>
 
 <!-- omit in toc -->
