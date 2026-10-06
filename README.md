@@ -27,10 +27,8 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 ## Table of Contents
 - [Wisp V2](#wisp-v2)
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
-  - [Hardware](#hardware)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
-  - [Hardware](#hardware-1)
   - [Electronics](#electronics)
   - [Current Draw Test](#current-draw-test)
   - [State Machine Diagram](#state-machine-diagram)
@@ -46,12 +44,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 
 ## Wisp V2
 
-The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O₃ (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO₂ (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO₂ from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB was overhauled. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
-
-<div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
-  <p>Figure 3: Wisp V2 PCB</p>
-</div>
+The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility. Beyond standard Particulate Matter (1.0–10.0), VOC, NOx, and tempurature/humidity readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows users to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. The device is housed in a custom 3D-printed waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1. The Wisp v2 began deployment in May 2026.
 
 <div align="center">
 
@@ -75,11 +68,9 @@ The Wisp V2 is an expansion on the Wisp, significantly expanding the device's co
 | Sulfur Dioxide (SO₂) | SEN0470 | 0.1 ppm | ±10% | 0 to 20 ppm |
 | Ozone (O₃) | SEN0472 | 0.1 ppm | ±10% | 0 to 10 ppm |
 
+Table 1: Wisp v2 Sensor specifications, '% m.v.' means '% of measured value'. 
 
 </div>
-
-### Hardware
-Beyond standard Particulate Matter (1.0–10.0), VOC, and NOx readings in all Wisp units, the V2 switches out the SEN55 for the SEN66, which additionally supports Carbon Dioxide (CO₂) sensing. The V2 architecture also integrates an I²C multiplexer to support several DFRobot Gravity gas sensors (including CO, O₃, and SO₂) as well as any other I²C sensors with Loom integration. This allows users to swap sensor modules dynamically to suit specific deployment environments without redesigning the hardware. While many other sensors, like rainfall, air quality, and wind direction, could have been chosen, we selected the current combination of sensors to fulfill a demand that existed within a local agricultural research lab. To support these expanded capabilities in remote locations, the device is housed in a custom waterproof enclosure designed to accommodate up to five 10050 mAh batteries, significantly extending operational runtime compared to the V1.
 
 The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
 
@@ -87,7 +78,12 @@ A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wi
 
 The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
 
-Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an online database via MQTT. Computer applications can subscribe to these MQTT data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
+Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an online database via MQTT. Computer applications can subscribe to these MQTT data stream feeds, and data analysis can be conducted based on the data sent by Wisp units.
+
+<div align="center">
+  <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
+  <p>Figure 3: Wisp V2 PCB</p>
+</div>
 
 
 ## Wisp V1
@@ -111,23 +107,20 @@ Like the Wisp v2 units, each Wisp v1 unit can measure Particulate Matter 10.0|4.
 | Particulate Matter 4.0 | SEN55 | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
 | Particulate Matter 10 | SEN55 |±1.25 μg/m³/yr to ±1.25 % m.v./yr  | ±25 μg/m³ to ±25 % m.v. | 0 to 1000 μg/m³ |
 
+Table 2: Wisp v1 Sensor specifications, '% m.v.' means '% of measured value'. 
 </div>
 
+<div align="center">
+  <img width="60%" src="https://github.com/user-attachments/assets/e75312ab-8188-4374-b316-18e5ab308005"/>
+  <p>Figure 4: Fully built Wisp device</p>
+</div>
 
-### Hardware
-The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set. Inside the case, a custom 3D printed base plate holds electronics securely in place. Like the Wisp v2, Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by the sensors, and managing the sleep and wake cycles of the device. In order to enable 4G capabilities, the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, a solar charger, and a 5 Watt solar panel is implemented.
+The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set. Inside the case, a custom 3D printed base plate holds electronics securely in place. Like the Wisp v2, Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by the sensors, and managing the sleep and wake cycles of the device. In order to enable 4G capabilities, the use of components such as the [SARA-R4 4G board](https://www.sparkfun.com/products/14997) for 4G cellular connectivity, a solar charger, and a 5 Watt solar panel is implemented. 
 
 
 <div align="center">
   <img width="60%" src="https://github.com/user-attachments/assets/1b245f23-9401-431b-ad87-d6cbec88cc81"/>
-  <p>Figure 4: Wisp v1 PCB with footprints for analog, digital, I²C, and other serial sensors</p>
-</div>
-
-Other I²C sensors may also be connected as long as there is relevant code to handle requesting data on the Feather M0.
-
-<div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/e75312ab-8188-4374-b316-18e5ab308005"/>
-  <p>Figure 5: Fully built Wisp device</p>
+  <p>Figure 5: Wisp v1 PCB with footprints for analog, digital, I²C, and other serial sensors</p>
 </div>
 
 ### Electronics
