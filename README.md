@@ -47,7 +47,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 
 ## Wisp V2
 
-The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O₃ (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO₂ (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO₂ from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB integrates a new I²C multiplexer, which enhances signal stability and allows users to mix and match sensors for specific research needs. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features improved accessibility for the SD card and expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
+The Wisp V2 is an expansion on the Wisp, significantly expanding the device's compatibility to include DFRobot Gravity gas sensors for [O₃ (SEN0472)](https://www.dfrobot.com/product-2516.html), [CO (SEN0466)](https://www.dfrobot.com/product-2508.html), and [SO₂ (SEN0470)](https://www.dfrobot.com/product-2514.html) and [CO₂ from the SEN66](https://sensirion.com/products/catalog/SEN66). To support this wider array of peripherals, the V2 PCB was overhauled. These electronics are housed in a redesigned, fully 3D-printed waterproof enclosure that features expanded capacity for up to five 10050mAh LiPo batteries. The Wisp v2 began deployment in May 2026.
 
 <div align="center">
   <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
