@@ -106,12 +106,6 @@ Data can be streamed in real time via an LTE or WIFI connection to MongoDB, an o
 | Particulate Matter 10 |SEN55| ±25 |μg/m³| ±25|μg/m³ | 0 - 1000|μg/m³|
 | Volatile Organic Compounds |SEN55| ±5 |VOC index points| ±5| VOC index points |1 - 500 |VOC index points|
 | Nitrogen Oxides Index |SEN55| ±10 |NOx index points| ±10| NOx index points |1 - 500 |NOx index points|
-| 5 Watt Solar Panel| |||||||
-| Data Collection Frequency | | | | ||5| Minutes|
-| Battery life (Up to 3 10050 mAh batteries) | | |||| 25 | Days|
-| Project Cost | | | |||<800 | $|
-| Logs Data to SD | | | | ||Time | date/hour/min |
-| SD and USB are easily accessible |
 </div>
 
 
