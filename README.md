@@ -31,9 +31,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
   - [Wireless Data Access](#wireless-data-access)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
-  - [Electronics](#electronics)
   - [Current Draw Test](#current-draw-test)
-  - [State Machine Diagram](#state-machine-diagram)
   - [Deployment History](#deployment-history)
 - [Resource List](#resource-list)
   - [Sensor Datasheets](#sensor-datasheets)
@@ -132,34 +130,9 @@ The Pelican case has three holes drilled on the side to accommodate the PG7 cabl
   <p>Figure 5: Wisp v1 PCB with footprints for analog, digital, I²C, and other serial sensors</p>
 </div>
 
-### Electronics
-
-<div align="center">
-  <img width="50%" src="https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/assets/105105069/00871e87-b122-4b99-ac3b-c0f6e6f89bd9"/>
-  <p>Figure 6: Block diagram of Wisp electronics</p>
-</div>
-
-The most relevant features of the electronics system are the following:
-* Measures Particulate Matter 1.0/2.5/5.0/10.0, volatile organic compounds, and nitrogen oxides
-* Measures air temperature and humidity
-* Saves data to SD
-* Onboard RTC and power switching relays for power savings
-* Cellular LTE access to upload data to the MongoDB server
-* WiFi access to upload data to MongoDB server
-
-
-
 ### Current Draw Test
 
 The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling. During transmission, the Wisp draws 305mA peak current. It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery. A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
-
-### State Machine Diagram
-
-
-<div align="center">
-  <img width="60%" src="https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/assets/105105069/84997534-468d-45ce-ac49-34dc9aa48742">
-  <p>Figure 7: Data-flow handling chart</p>
-</div>
 
 ### Deployment History
 Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over the past four years, OPEnS has handled Wisp deployments at over 44 locations where their data is currently being used by UC Davis, OSU, and WSU.
