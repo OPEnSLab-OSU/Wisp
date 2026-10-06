@@ -27,6 +27,8 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 ## Table of Contents
 - [Wisp V2](#wisp-v2)
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
+  - [Sleep and Data Logging](#sleep-and-data-logging)
+  - [Wireless Data Access](#wireless-data-access)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
   - [Electronics](#electronics)
@@ -72,13 +74,20 @@ Table 1: Wisp v2 Sensor specifications, '% m.v.' means '% of measured value'.
 
 </div>
 
+### Sleep and Data Logging
+
 The default logging period of 5 minutes is arbitrary and can be adjusted to accommodate any power requirements. The total operation duration of the system can be lengthened significantly with the addition of a solar panel and better power management, which is recommended in areas with lack of access to a dedicated power source.
 
 A Feather M0 WiFi and [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board is used to store data collected by the sensors. The v3.3 Hypnos board turns peripherals on and off to preserve power, wakes up at intervals using the embedded DS3231 RTC, and stores data onboard a microSD card.
 
+Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT broker.
+
+### Wireless Data Access
 The integration of particulate matter data into a centralized cloud database by the Wisp unit enables the aggregation and analysis of air quality data on a broader scale. By centralizing this data, researchers can more effectively identify trends and patterns in air quality over time. This approach not only facilitates the detection of emerging environmental trends but also enhances the understanding of the impact of various factors on air quality.
 
 Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an online database via a MQTT broker. Computer applications can subscribe to these MQTT data stream feeds, and receive the data from the Wisp unit for data analysis.
+
+MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number” to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data.
 
 <div align="center">
   <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
@@ -146,17 +155,14 @@ The Wisp device draws approximately 20mA when initializing and 117mA during sens
 
 ### State Machine Diagram
 
-Each sample cycle is triggered by RTC alarm to wake from a low-power sleep mode, the Feather M0 requests data from each of the sensors with the Loom Measure code and formats the data according to each logging platform: comma separated for local storage on microSD and JSON for telemetry. After all sensor information has been collected and formatted, the Feather will initiate a message over 4G to a remote MQTT broker.
 
 <div align="center">
   <img width="60%" src="https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/assets/105105069/84997534-468d-45ce-ac49-34dc9aa48742">
   <p>Figure 7: Data-flow handling chart</p>
 </div>
 
-MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number” to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data.
-
 ### Deployment History
-Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over the past four years, OPEnS has handled Wisp deployments at over 43 locations where their data is currently being used by UC Davis, OSU, and WSU.
+Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over the past four years, OPEnS has handled Wisp deployments at over 44 locations where their data is currently being used by UC Davis, OSU, and WSU.
 
 <div align="center">
   <img width="60%" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe"/>
