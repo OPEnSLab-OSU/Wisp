@@ -15,12 +15,12 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 
 <div align="center">
   <img src="assets/images/wisp_v2_deployed.jpg" width="60%">
-  <p>Figure 1: Deployed Wisp v2 Unit</p>
+  <p>Figure 1: Deployed Wisp V2 Unit</p>
 </div>
 
 <div align="center">
   <img src="assets/images/wisp_v1_deployed.jpg" width="60%">
-  <p>Figure 2: Deployed Wisp v1 Unit</p>
+  <p>Figure 2: Deployed Wisp V1 Unit</p>
 </div>
 
 <!-- omit in toc -->
@@ -211,20 +211,20 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 ### In-House PCB Schematics
 
 * [Hypnos v3.3](asset/schematics/hypnos_v3.3.pdf)
-* [Wisp v2](asset/schematics/wisp_v2.pdf)
-* [Wisp v1](asset/schematics/wisp_v1.pdf)
+* [Wisp V2](asset/schematics/wisp_v2.pdf)
+* [Wisp V1](asset/schematics/wisp_v1.pdf)
 
 ### Bill of Materials
 
-* [Wisp v2]() TODO
-* [Wisp v1]() TODO
+* [Wisp V2 Bill of Materials]() TODO
+* [Wisp V1 Bill of Materials]() TODO
 
 ### Power Budget
 
-* [Wisp v2]() TODO
-* [Wisp v1]() TODO
+* [Wisp V2 Power Budget]() TODO
+* [Wisp V1 Power Budget]() TODO
 
 ### Build Guide
 
-* [Wisp v2]() TODO
-* [Wisp v1]() TODO
+* [Wisp V2 Build Guide]() TODO
+* [Wisp V1 Build Guide]() TODO
