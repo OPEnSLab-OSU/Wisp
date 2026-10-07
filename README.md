@@ -25,17 +25,14 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 
 <!-- omit in toc -->
 ## Table of Contents
+- [Operation](#operation)
 - [Wisp V2](#wisp-v2)
+  - [Upgrades From V1](#upgrades-from-v1)
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
-  - [Hardware](#hardware)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
-  - [Hardware In Context](#hardware-in-context)
-  - [Hardware Description](#hardware-description)
-  - [Electronics](#electronics)
-  - [Current Draw Test](#current-draw-test)
-  - [State Machine Diagram](#state-machine-diagram)
-  - [Deployment History](#deployment-history)
+- [Power Consumption](#power-consumption)
+- [Deployment History](#deployment-history)
 - [Resource List](#resource-list)
   - [Sensor Datasheets](#sensor-datasheets)
   - [LTE Board](#lte-board)
@@ -45,7 +42,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
   - [Power Budget](#power-budget)
   - [Build Guide](#build-guide)
 
-### Operation
+## Operation
 
 <div align="center">
   <img src="assets/images/wisp_block_diagram.drawio.png"/>
