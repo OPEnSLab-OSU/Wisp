@@ -81,6 +81,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 ### Wisp V2 Sensor Specs
 
 <div align="center">
+
 | **Specification**                | **Sensor** | **Repeatability**                 | **Accuracy**                        | **Full Range**     |
 | :---                             | :---:      | :---:                             | :---:                               | :---:              |
 | Ambient Temperature              | SHT31      | ±0.07 °C                          | ±0.3 °C                             | -40 to 125 °C      |
@@ -98,6 +99,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 | Carbon Monoxide (CO)             | SEN0466    | 1 ppm                             | ±10%                                | 0 to 1000 ppm      |
 | Sulfur Dioxide (SO₂)             | SEN0470    | 0.1 ppm                           | ±10%                                | 0 to 20 ppm        |
 | Ozone (O₃)                       | SEN0472    | 0.1 ppm                           | ±10%                                | 0 to 10 ppm        |
+
 </div>
 
 ## Wisp V1
@@ -105,6 +107,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 ### Wisp V1 Sensor Specs
 
 <div align="center">
+
 | Specification              | Sensor | Resolution    | Accuracy      | Full Range        |
 | :---                       | :---:  | :---:         | :---:         | :---:             |
 | Ambient Temperature        | SHT31  | 0.01 °C       | ±0.3 °C       | -40 - 125 °C      |
@@ -115,6 +118,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 | Particulate Matter 10      | SEN55  | ±25 μg/m³     | ±25 μg/m³     | 0 - 1000 μg/m³    |
 | Volatile Organic Compounds | SEN55  | ±5 VOC index  | ±5 VOC index  | 1 - 500 VOC index |
 | Nitrogen Oxides Index      | SEN55  | ±10 NOx index | ±10 NOx index | 1 - 500 NOx index |
+
 </div>
 
 <div align="center">
