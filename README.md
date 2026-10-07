@@ -87,15 +87,21 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 | Ambient Temperature              | SHT31      | ±0.07 °C                          | ±0.3 °C                             | -40 to 125 °C      |
 | Humidity                         | SHT31      | ±0.015 %RH                        | ±2 %RH                              | 0 to 100 %RH       |
 | Carbon Dioxide (CO₂)             | SEN66      | ±10 ppm                           | ±(50 ppm + 2.5 % m.v.)              | 0 to 40000 ppm     |
+
 | **Specification**                | **Sensor** | **Repeatability**                 | **Device Variation**                | **Full Range**     |
+| :------------------------------- | :--------: | :-------------------------------: | :---------------------------------: | :----------------: |
 | Volatile Organic Compounds (VOC) | SEN66      |±5 VOC index                       | ±15 VOC index                       | 1 to 500 VOC index |
 | Nitrogen Oxides Index (NOx)      | SEN66      |±10 NOx index                      | ±50 NOx index                       | 1 to 500 NOx index |
+
 | **Specification**                | **Sensor** | **Max Drift**                     | **Precision**                       | **Full Range**     |
+| :------------------------------- | :--------: | :-------------------------------: | :---------------------------------: | :----------------: |
 | Particulate Matter 1.0 (PM1)     | SEN66      | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³    |
 | Particulate Matter 2.5 (PM2.5)   | SEN66      | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±(5 μg/m³ + 5 % m.v.) to ±10 % m.v. | 0 to 1000 μg/m³    |
 | Particulate Matter 4.0 (PM4)     | SEN66      | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±25 μg/m³ to ±25 % m.v.             | 0 to 1000 μg/m³    |
 | Particulate Matter 10  (PM10)    | SEN66      | ±1.25 μg/m³/yr to ±1.25 % m.v./yr | ±25 μg/m³ to ±25 % m.v.             | 0 to 1000 μg/m³    |
+
 | **Specification**                | **Sensor** | **Resolution**                    | **Accuracy**                        | **Full Range**     |
+| :------------------------------- | :--------: | :-------------------------------: | :---------------------------------: | :----------------: |
 | Carbon Monoxide (CO)             | SEN0466    | 1 ppm                             | ±10%                                | 0 to 1000 ppm      |
 | Sulfur Dioxide (SO₂)             | SEN0470    | 0.1 ppm                           | ±10%                                | 0 to 20 ppm        |
 | Ozone (O₃)                       | SEN0472    | 0.1 ppm                           | ±10%                                | 0 to 10 ppm        |
