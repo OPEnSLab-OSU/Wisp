@@ -173,9 +173,9 @@ TODO replace with graphs showing fires
 
 ### In-House PCB Schematics
 
-* [Hypnos v3.3](asset/schematics/hypnos_v3.3.pdf)
-* [Wisp V2](asset/schematics/wisp_v2.pdf)
-* [Wisp V1](asset/schematics/wisp_v1.pdf)
+* [Hypnos v3.3](assets/schematics/hypnos_v3.3.pdf)
+* [Wisp V2](assets/schematics/wisp_v2.pdf)
+* [Wisp V1](assets/schematics/wisp_v1.pdf)
 
 ### Bill of Materials
 
