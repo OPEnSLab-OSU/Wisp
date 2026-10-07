@@ -82,7 +82,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 
 <div align="center">
 | **Specification**                | **Sensor** | **Repeatability**                 | **Accuracy**                        | **Full Range**     |
-| :------------------------------- | :--------: | :-------------------------------: | :---------------------------------: | :----------------: |
+| :---                             | :---:      | :---:                             | :---:                               | :---:              |
 | Ambient Temperature              | SHT31      | ±0.07 °C                          | ±0.3 °C                             | -40 to 125 °C      |
 | Humidity                         | SHT31      | ±0.015 %RH                        | ±2 %RH                              | 0 to 100 %RH       |
 | Carbon Dioxide (CO₂)             | SEN66      | ±10 ppm                           | ±(50 ppm + 2.5 % m.v.)              | 0 to 40000 ppm     |
@@ -106,7 +106,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 
 <div align="center">
 | Specification              | Sensor | Resolution    | Accuracy      | Full Range        |
-| :------------------------- | :----: | :-----------: | :-----------: | :---------------: |
+| :---                       | :---:  | :---:         | :---:         | :---:             |
 | Ambient Temperature        | SHT31  | 0.01 °C       | ±0.3 °C       | -40 - 125 °C      |
 | Humidity                   | SHT31  | 0.015 %RH     | ±3 %RH        | 0 - 100  %RH      |
 | Particulate Matter 1.0     | SEN55  | ±5 μg/m³      | ±5 μg/m³      | 0 - 1000 μg/m³    |
