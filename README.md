@@ -88,7 +88,7 @@ Data can be streamed in real time via an LTE or WiFi connection to MongoDB, an o
 MQTT brokers work by utilizing a publish/subscribe paradigm, this paradigm works on the basis that there are “topics” that are public to everyone viewing the broker. Users can subscribe to topics which allows them to receive a callback when new data is published to the topic. For Wisp, all data messages are sent over a topic, the topic is formatted with the “Site Name”/”Device Name” + “Device Number” to distinguish between the devices and their locations and determine the destination, i.e. collection, in the MongoDB database. Assigning a two part topic to each message allows multiple devices, even with the same name, to publish to different collections of data.
 
 <div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/8ba0f92d-618b-4d27-87f9-11aa199c0dd8"/>
+  <img width="60%" src="assets/images/wisp_v2_pcb.png"/>
   <p>Figure 3: Wisp V2 PCB</p>
 </div>
 
@@ -118,7 +118,7 @@ Table 2: Wisp v1 Sensor specifications, '% m.v.' means '% of measured value'.
 </div>
 
 <div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/e75312ab-8188-4374-b316-18e5ab308005"/>
+  <img width="60%" src="assets/images/wisp_v1_built.png"/>
   <p>Figure 4: Fully built Wisp device</p>
 </div>
 
@@ -126,7 +126,7 @@ The Pelican case has three holes drilled on the side to accommodate the PG7 cabl
 
 
 <div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/1b245f23-9401-431b-ad87-d6cbec88cc81"/>
+  <img width="60%" src="assets/images/wisp_v1_pcb.png"/>
   <p>Figure 5: Wisp v1 PCB with footprints for analog, digital, I²C, and other serial sensors</p>
 </div>
 
@@ -138,17 +138,17 @@ The Wisp device draws approximately 20mA when initializing and 117mA during sens
 Increasing wildfire frequency and intensity across California, Oregon, and Washington pose a significant threat to the wine industry through the phenomenon of smoke taint, where volatile phenols from smoke are absorbed by grapes, negatively impacting wine quality. So for the past two years, Wisp has been deployed across the West Coast in order to collect data on smoke particulates in vineyards. Over the past four years, OPEnS has handled Wisp deployments at over 44 locations where their data is currently being used by UC Davis, OSU, and WSU.
 
 <div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/4799d9f0-c3be-4c77-b260-e1e982711efe"/>
+  <img width="60%" src="assets/images/wisp_v1_graph_pm.png"/>
   <p>Figure 8: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington</p>
 </div>
 
 <div align="center">
-  <img width="60%" src="https://github.com/user-attachments/assets/b0d793c7-6f7e-4e41-ac06-b3f074bc1c03"/>
+  <img width="60%" src="assets/images/wisp_v1_graph_voc.png"/>
   <p>Figure 9: VOC index graph from 6/25/25 - 9/3/25 in Washington</p>
 </div>
 
 <div align="center">
-  <img width="70%" src="https://github.com/user-attachments/assets/f3586e3b-fb2d-44d4-baf8-bf03e1f2033f"/>
+  <img width="70%" src="assets/images/wisp_v1_csv.png"/>
   <p>Figure 10: CSV File output from Wisp unit</p>
 </div>
 
