@@ -163,7 +163,7 @@ Increasing wildfire frequency and intensity across California, Oregon, and Washi
 * [Sensirion SEN66](https://sensirion.com/media/documents/FAFC548D/693FBB15/PS_DS_SEN6x.pdf)
 * [Sensirion SHT31](https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf)
 * [Maxim DS3231](https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231.pdf)
-* [Gravity Sensors]() TODO
+* [DFRobot Gravity Sensors](https://dfimg.dfrobot.com/nobody/wiki/5953b463b8712f03d0791e98dd592e78.pdf)
 
 ### LTE Board
 
