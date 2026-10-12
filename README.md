@@ -1,12 +1,18 @@
 <!-- omit in toc -->
 # Wisp
-An open-source remote air quality sensing device made by OPEnS Lab OSU. The device logs air quality parameters to the MongoDB database.
+
+An open-source remote air quality sensing device made by OPEnS Lab OSU.
+The device logs air quality parameters to the MongoDB database.
 
 Project leads: **Quinn Yockey** \<yockeyq@oregonstate.edu\>, **Shion Britten** \<brittesh@oregonstate.edu\>
 
 <!-- omit in toc -->
 ## Abstract
-Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality. Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost. To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
+
+Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality.
+Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost.
+To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
+
 * Data is being used with analysis of actual grape samples in effort to model smoke taint risk
 * Measures 12 air quality parameters including particulate matter, CO₂, CO, SO₂
 * Solar battery charger and 4G telemetry allows use in remote locations
@@ -141,7 +147,10 @@ Inside the case, a custom 3D printed base plate holds electronics securely in pl
 
 TODO Shion update with results from V1 and V2
 
-The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling. During transmission, the Wisp draws 305mA peak current. It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery. A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
+The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling.
+During transmission, the Wisp draws 305mA peak current.
+It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery.
+A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
 
 ## Deployment History
 
