@@ -27,7 +27,7 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
 ## Table of Contents
 - [Operation](#operation)
 - [Wisp V2](#wisp-v2)
-  - [Upgrades From V1](#upgrades-from-v1)
+  - [Upgrades from V1](#upgrades-from-v1)
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
@@ -39,8 +39,6 @@ Wildfires across Oregon, Washington, and California pose a significant threat to
   - [SAMD Microcontroller](#samd-microcontroller)
   - [In-House PCB Schematics](#in-house-pcb-schematics)
   - [Bill of Materials](#bill-of-materials)
-  - [Power Budget](#power-budget)
-  - [Build Guide](#build-guide)
 
 ## Operation
 
@@ -139,16 +137,12 @@ Inside the case, a custom 3D printed base plate holds electronics securely in pl
 
 ## Power Consumption
 
-TODO Shion update with results from V1 and V2
-
 The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling. During transmission, the Wisp draws 305mA peak current. It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery. A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
 
 ## Deployment History
 
 For the past four years, Wisp units have been deployed at 44 vineyards in Washington, Oregon, and California in order to monitor air quality.
 This data is currently being analyzed by researchers at Oregon State University, Washington State University Tri Cities, and University of California Davis.
-
-TODO replace with graphs showing fires
 
 <div align="center">
   <img width="60%" src="assets/images/wisp_v1_graph_pm.png"/>
@@ -192,14 +186,3 @@ TODO replace with graphs showing fires
 ### Bill of Materials
 
 * [Wisp V2 Bill of Materials](docs/WISP_v2_BOM_2026.xlsx)
-* [Wisp V1 Bill of Materials]() TODO
-
-### Power Budget
-
-* [Wisp V2 Power Budget]() TODO
-* [Wisp V1 Power Budget]() TODO
-
-### Build Guide
-
-* [Wisp V2 Build Guide]() TODO
-* [Wisp V1 Build Guide]() TODO
