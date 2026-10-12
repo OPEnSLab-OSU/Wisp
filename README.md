@@ -4,7 +4,14 @@
 An open-source remote air quality sensing device made by OPEnS Lab OSU.
 The device logs air quality parameters to the MongoDB database.
 
-Project leads: **Quinn Yockey** \<yockeyq@oregonstate.edu\>, **Shion Britten** \<brittesh@oregonstate.edu\>
+<!-- omit in toc -->
+## Project Members
+
+| Name          | Role                           | Email                    |
+| :------------ | :----------------------------- | :----------------------- |
+| Quinn Yockey  | Team lead, embedded software   | yockeyq@oregonstate.edu  |
+| Shion Britten | Electrical & power analysis    | brittesh@oregonstate.edu |
+| Rowan Bignell | Software & Loom integration    | bignellr@oregonstate.edu |
 
 <!-- omit in toc -->
 ## Abstract
