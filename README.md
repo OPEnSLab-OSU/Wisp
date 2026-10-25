@@ -44,7 +44,6 @@ To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality moni
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
-- [Power Consumption](#power-consumption)
 - [Deployment History](#deployment-history)
 - [Resource List](#resource-list)
   - [Sensor Datasheets](#sensor-datasheets)
@@ -148,27 +147,9 @@ Table 2: Wisp V1 Sensor specifications, '% m.v.' means '% of measured value'.
 The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set.
 Inside the case, a custom 3D printed base plate holds electronics securely in place.
 
-## Power Consumption
-
-The Wisp device draws approximately 20mA when initializing and 117mA during sensor polling.
-During transmission, the Wisp draws 305mA peak current.
-It sleeps for 5 minutes between data cycles, draws a nominal 5 mA, and peaks at 30 mA using just the battery.
-A Wisp can operate for approximately one month, transmitting every 6 hours using 5-minute sleep intervals.
-
 ## Deployment History
 
-For the past four years, Wisp units have been deployed at 44 vineyards in Washington, Oregon, and California in order to monitor air quality.
-This data is currently being analyzed by researchers at Oregon State University, Washington State University Tri Cities, and University of California Davis.
-
-<div align="center">
-  <img width="60%" src="assets/images/wisp_v1_graph_pm.png"/>
-  <p>Figure 8: PM 2.5 graph from 6/25/25 - 9/3/25 in Washington</p>
-</div>
-
-<div align="center">
-  <img width="60%" src="assets/images/wisp_v1_graph_voc.png"/>
-  <p>Figure 9: VOC index graph from 6/25/25 - 9/3/25 in Washington</p>
-</div>
+For the past four years, Wisp units have monitored air quality at 44 vineyards in Washington, Oregon, and California. This data is currently being analyzed by researchers at Oregon State University, Washington State University Tri-Cities, and University of California Davis.
 
 ## Resource List
 
