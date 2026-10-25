@@ -42,6 +42,7 @@ To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality moni
 - [Wisp V2](#wisp-v2)
   - [Upgrades from V1](#upgrades-from-v1)
   - [Wisp V2 Sensor Specs](#wisp-v2-sensor-specs)
+  - [Power Consumption](#power-consumption)
 - [Wisp V1](#wisp-v1)
   - [Wisp V1 Sensor Specs](#wisp-v1-sensor-specs)
 - [Deployment History](#deployment-history)
@@ -51,6 +52,7 @@ To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality moni
   - [SAMD Microcontroller](#samd-microcontroller)
   - [In-House PCB Schematics](#in-house-pcb-schematics)
   - [Bill of Materials](#bill-of-materials)
+  - [Power Budget](#power-budget)
 
 ## Operation
 
@@ -114,6 +116,10 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 Table 1: Wisp v2 Sensor specifications, '% m.v.' means '% of measured value'.
 
 </div>
+
+### Power Consumption
+
+With 5-minute intervals between samples, saving data to SD card, and transmitting over LTE, the Wisp v2 draws an average of 394.541 mW. With the 5 included LiPo batteries, it will last over 21 days before fully depleting the batteries, not including any charge from the solar panel.
 
 ## Wisp V1
 
@@ -183,3 +189,6 @@ For the past four years, Wisp units have monitored air quality at 44 vineyards i
 ### Bill of Materials
 
 * [Wisp V2 Bill of Materials](docs/WISP_v2_BOM_2026.xlsx)
+
+### Power Budget
+* [Wisp V2 Power Budget](docs/WISP_v2_powerbudget_2026.xlsx)
