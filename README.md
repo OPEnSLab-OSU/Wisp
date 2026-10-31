@@ -119,7 +119,7 @@ Table 1: Wisp v2 Sensor specifications, '% m.v.' means '% of measured value'.
 
 ### Power Consumption
 
-With 5-minute intervals between samples, saving data to SD card, and transmitting over LTE, the Wisp v2 draws an average of 394.541 mW. With the 5 included LiPo batteries, it will last over 21 days before fully depleting the batteries, not including any charge from the solar panel.
+The Wisp v2 with all peripherals connected, including DFRobot sensors, SEN66, and LTE functionality, draws an average of 394 mW. The device can run for 26 days on battery power alone, not including the solar panel.
 
 ## Wisp V1
 
