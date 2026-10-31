@@ -2,7 +2,7 @@
 # Wisp
 
 An open-source remote air quality sensing device made by OPEnS Lab OSU.
-The device logs air quality parameters to the MongoDB database.
+The device logs air quality parameters to a MongoDB database.
 
 <!-- omit in toc -->
 ## Project Members
@@ -17,12 +17,12 @@ The device logs air quality parameters to the MongoDB database.
 ## Abstract
 
 Wildfires across Oregon, Washington, and California pose a significant threat to the wine industry through smoke taint, which negatively impacts wine quality.
-Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high cost.
+Accurate, high-resolution data on smoke exposure at the vineyard level is critical for risk assessment, yet commercial devices can be high-cost.
 To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality monitoring device:
 
-* Data is being used with analysis of actual grape samples in effort to model smoke taint risk
-* Measures 12 air quality parameters including particulate matter, CO₂, CO, SO₂
-* Solar battery charger and 4G telemetry allows use in remote locations
+* Data is being used with analysis of actual grape samples in an effort to model smoke taint risk
+* Measures 12 air quality parameters, including particulate matter, CO₂, CO, and SO₂
+* Solar battery charger and 4G telemetry allow use in remote locations
 * Low-cost (under $1500) compared to commercial competitors
 * Open-source software and hardware
 
@@ -64,7 +64,7 @@ To address this, OPEnS Lab has developed Wisp, an Arduino-based air quality moni
 Due to the remote nature of most vineyard deployments, a convenient power source is usually not present.
 A solar panel is used to recharge batteries, allowing indefinite operation as long as there is adequate sunlight.
 
-Each Wisp device is powered by a [Feather M0+](#samd-microprocessr) microcontroller break-out board.
+Each Wisp device is powered by a [Feather M0+](#samd-microprocessr) microcontroller breakout board.
 Data is sampled from each sensor at a configurable interval, typically 5 minutes.
 The data is then saved to an SD card in CSV format for future analysis.
 Precise sleep control and SD data logging are made possible by the [Hypnos](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Hypnos) v3.3 board.
@@ -151,7 +151,7 @@ Table 2: Wisp V1 Sensor specifications, '% m.v.' means '% of measured value'.
 </div>
 
 The Pelican case has three holes drilled on the side to accommodate the PG7 cable glands and waterproof cable set.
-Inside the case, a custom 3D printed base plate holds electronics securely in place.
+Inside the case, a custom 3D-printed base plate holds electronics securely in place.
 
 ## Deployment History
 
