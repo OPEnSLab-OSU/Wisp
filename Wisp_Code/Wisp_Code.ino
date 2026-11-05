@@ -95,11 +95,6 @@ void setup() {
   // Start the serial interface
   manager.beginSerial();
 
-#if WISP_USE_LTE
-  // Set the LTE board to only powerup when a batch is ready to be sent
-  lte.setBatchSD(batchSD);
-#endif
-
   // Both power rails should be on when awake
   hypnos.setWakeConfiguration(POWERRAIL_CONFIG::PR_3V_ON_5V_ON);
 
@@ -110,14 +105,6 @@ void setup() {
   // Enable the hypnos rails
   hypnos.enable();
 
-#if WISP_USE_LTE
-  // Time Sync Using LTE
-  hypnos.setNetworkInterface(&lte);
-
-  // Read the MQTT creds file to supply the device with MQTT credentials
-  mqtt.loadConfigFromJSON(hypnos.readFile(MQTT_CREDS_PATH));
-#endif
-
   // Initialize all modules
   // LTE initialization takes ~15 seconds, do this BEFORE starting the Watchdog
   manager.initialize();
@@ -126,7 +113,12 @@ void setup() {
   hypnos.registerInterrupt(isrTrigger);
 
 #if WISP_USE_LTE
+  // Time sync using network interface
+  hypnos.setNetworkInterface(&lte);
   hypnos.networkTimeUpdate();
+
+  // Set the LTE board to only powerup when a batch is ready to be sent
+  lte.setBatchSD(batchSD);
 #endif
 }
 
@@ -157,18 +149,16 @@ void loop() {
   // Log the data to the SD
   hypnos.logToSD();
 
+  // Disable watchdog before transmitting 4G data, this can take some time
+  Watchdog.disable();
+
 #if WISP_USE_LTE
   /* After sd.log() trnucates log file, apply target batch size */
   if (batchSD.getCurrentBatch() == 1 && targetBatchSize != currentBatchSize) {
     currentBatchSize = targetBatchSize;
     batchSD = Loom_BatchSD(hypnos, currentBatchSize);
   }
-#endif
 
-  // Disable watchdog before transmitting 4G data, this can take some time
-  Watchdog.disable();
-
-#if WISP_USE_LTE
   // Pass in the batchSD to the mqtt obj to check/ publish a batch of data if ready
   mqtt.publish(batchSD);
 
@@ -176,6 +166,9 @@ void loop() {
   if (batchSD.shouldPublish()) {
     targetBatchSize = min(WISP_BATCH_SIZE_MAX, 2 * currentBatchSize);
   }
+
+  // Sync time (network updates can also block for several seconds)
+  hypnos.networkTimeUpdate();
 #endif
 
   // Set the interrupt duration
@@ -183,11 +176,6 @@ void loop() {
 
   // Reattach the interrupt
   hypnos.reattachRTCInterrupt();
-
-#if WISP_USE_LTE
-  // Sync time (network updates can also block for several seconds)
-  hypnos.networkTimeUpdate();
-#endif
 
   // Set the hypnos to sleep, don't wait for user to open serial monitor
   hypnos.sleep(false);
