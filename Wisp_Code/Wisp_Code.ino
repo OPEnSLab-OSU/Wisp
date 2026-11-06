@@ -1,68 +1,59 @@
+#include "Wisp_Config.h"
+#ifndef WISP_CONFIG_VALID
+#   error Invalid configuration in "Wisp_Config.h"
+#endif
+
 #include <Loom_Manager.h>
 #include <Adafruit_SleepyDog.h>
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
 #include <Logger.h>
 #include <Sensors/Loom_Analog/Loom_Analog.h>
 
-/* CHANGE PARAMETERS! */
-#define WISP_VERSION  2  // 1 or 2
-#define WISP_INSTANCE 1  // Unit number
-#define WISP_USE_LTE  true  // true or false
+#define WISP_USE_NETWORK (WISP_USE_LTE == true || WISP_USE_WIFI == true)
 
-#define WISP_SAMPLE_MINUTES 5
-
-// A packet is logged every 5 minutes, so mqtt will publish a batch of 72
-// packets every 6 hours
-#define WISP_BATCH_SIZE_MAX 72
-
-// I2C device addresses used with multiplexer in V2
-#define I2C_ADDR_DFGAS 0x74
-#define I2C_ADDR_SEN66 0x6B
-#define I2C_ADDR_SHT31 0x44
-
-// MQTT credentials file on SD card
-#define MQTT_CREDS_PATH "mqtt_creds.json"
+#if WISP_USE_NETWORK
+#   include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
+#   include "Wisp_Secrets.h"
+#   ifndef WISP_SECRETS_VALID
+#       error Invalid configuration in "Wisp_Secrets.h"
+#   endif
+#endif
 
 #if WISP_USE_LTE
-# include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
-# include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
-# include <Internet/Logging/Loom_MongoDB/Loom_MongoDB.h>
+#   include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
+#elif WISP_USE_WIFI
+#   include <Internet/Connectivity/Loom_Wifi/Loom_Wifi.h>
 #endif
 
 #if WISP_VERSION==1
-# include <Sensors/I2C/Loom_SEN55/Loom_SEN55.h>
-# include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
-
+#   include <Sensors/I2C/Loom_SEN55/Loom_SEN55.h>
+#   include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
 #elif WISP_VERSION==2
-# include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
+#   include <Hardware/Loom_Multiplexer/Loom_Multiplexer.h>
+#   define I2C_ADDR_DFGAS 0x74
+#   define I2C_ADDR_SEN66 0x6B
+#   define I2C_ADDR_SHT31 0x44
 #endif
 
-/* Stringification macro wizardry:
- * https://gcc.gnu.org/onlinedocs/gcc-4.8.5/cpp/Stringification.html
- *
- *   #define foo 4
- *   str (foo)
- *        ==> "foo"
- *   xstr (foo)
- *        ==> xstr (4)
- *        ==> str (4)
- *        ==> "4"
- */
-#define xstr(s) str(s)
-#define str(s) #s
-
-Manager manager("Wisp_V" xstr(WISP_VERSION) "_", WISP_INSTANCE);
-
+Manager manager(WISP_NAME, WISP_INSTANCE);
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true);
 
 // Reads the battery voltage
 Loom_Analog analog(manager);
 
 #if WISP_USE_LTE
-// 4G Connectivity
-Loom_LTE lte(manager, "hologram", "", "");
-Loom_BatchSD batchSD(hypnos, 2);
-Loom_MongoDB mqtt(manager, lte);
+Loom_LTE network(manager, "hologram", "", "");
+#endif
+
+#if WISP_USE_WIFI
+Loom_WIFI network(manager, CommunicationMode::CLIENT, WIFI_SSID, WIFI_PASSWORD);
+#endif
+
+#if WISP_USE_NETWORK
+Loom_MongoDB mqtt(
+    manager, network,
+    MQTT_BROKER, MQTT_PORT, MQTT_DATABASE, MQTT_USERNAME, MQTT_PASSWORD
+);
 uint8_t currentBatchSize = 2;
 uint8_t targetBatchSize = 2;
 #endif
@@ -112,13 +103,13 @@ void setup() {
   // Register the ISR and attach to the interrupt
   hypnos.registerInterrupt(isrTrigger);
 
-#if WISP_USE_LTE
+#if WISP_USE_NETWORK
   // Time sync using network interface
-  hypnos.setNetworkInterface(&lte);
+  hypnos.setNetworkInterface(&network);
   hypnos.networkTimeUpdate();
 
   // Set the LTE board to only powerup when a batch is ready to be sent
-  lte.setBatchSD(batchSD);
+  network.setBatchSD(batchSD);
 #endif
 }
 
@@ -152,7 +143,7 @@ void loop() {
   // Disable watchdog before transmitting 4G data, this can take some time
   Watchdog.disable();
 
-#if WISP_USE_LTE
+#if WISP_USE_NETWORK
   /* After sd.log() trnucates log file, apply target batch size */
   if (batchSD.getCurrentBatch() == 1 && targetBatchSize != currentBatchSize) {
     currentBatchSize = targetBatchSize;
