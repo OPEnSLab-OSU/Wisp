@@ -55,7 +55,8 @@ Loom_MongoDB mqtt(
     MQTT_BROKER, MQTT_PORT, MQTT_DATABASE, MQTT_USERNAME, MQTT_PASSWORD
 );
 uint8_t currentBatchSize = 2;
-uint8_t targetBatchSize = 2;
+uint8_t targetBatchSize = currentBatchSize;
+Loom_BatchSD batchSD(hypnos, currentBatchSize);
 #endif
 
 #if WISP_VERSION==1
