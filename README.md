@@ -98,7 +98,7 @@ Work on the V2 began in 2025 and was completed by the start of the 2026 fire sea
 | **Specification**                | **Sensor** | **Repeatability**                 | **Accuracy**               | **Full Range**     |
 | :------------------------------- | :--------: | :-------------------------------: | :------------------------: | :----------------: |
 | Ambient Temperature              | SHT31      | ±0.07 °C                          | ±0.3 °C                    | -40 to 125 °C      |
-| Humidity                         | SHT31      | ±0.015 %RH                        | ±2 %RH                     | 0 to 100 %RH       |
+| Humidity                         | SHT31      | ±0.15 %RH                        | ±2 %RH                     | 0 to 100 %RH       |
 | Carbon Dioxide (CO₂)             | SEN66      | ±10 ppm                           | ±(50 ppm + 2.5% m.v.)      | 0 to 40000 ppm     |
 | **Specification**                | **Sensor** | **Repeatability**                 | **Device Variation**       | **Full Range**     |
 | Volatile Organic Compounds (VOC) | SEN66      |±5 VOC index or ±5% m.v.           | ±15 VOC index or ±15% m.v. | 1 to 500 VOC index |
@@ -132,7 +132,7 @@ Like the Wisp V2 units, each Wisp V1 unit can measure particulate matter, volati
 | **Specification**          | **Sensor** | **Resolution**                   | **Accuracy**               | **Full Range**     |
 | :------------------------- | :--------: | :------------------------------: | :------------------------: | :----------------: |
 | Ambient Temperature        | SHT31      | 0.015 °C                         | ±0.3 °C                    | -40 to 125 °C      |
-| Humidity                   | SHT31      | 0.015 %RH                        | ±2 %RH                     | 0 to 100 %RH       |
+| Humidity                   | SHT31      | 0.15 %RH                        | ±2 %RH                     | 0 to 100 %RH       |
 | **Specification**          | **Sensor** | **Repeatability**                | **Device Variation**       | **Full Range**     |
 | Volatile Organic Compounds | SEN55      | ±5 VOC index or ±5% m.v.         | ±15 VOC index or ±15% m.v. | 1 to 500 VOC index |
 | Nitrogen Oxides Index      | SEN55      | ±10 NOx index or ±10% m.v.       | ±50 NOx index or ±50% m.v. | 1 to 500 NOx index |
